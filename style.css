@@ -376,7 +376,6 @@ span div {
 
     body {
         width: 100%;
-        height: 902px;
         flex-direction: column;
         overflow: scroll;
     }
@@ -389,6 +388,7 @@ span div {
 
     .column-1 {
         height: 288px;
+        margin-top: 24px;
     }
 
     .column-2 {
@@ -406,7 +406,7 @@ span div {
     }
 
     .question-contents {
-        height: 422px;
+        height: 100vh;
     }
 
      .column-1 {
