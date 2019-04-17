@@ -1,3 +1,10 @@
+//
+$(function () {
+    foldOrStretchRanking();
+    showQRcode();
+});
+
+// UI interactions
 function foldOrStretchRanking() {
     $( ".Question-ranking-more" ).hide();
     $( ".fold-button" ).hide();
@@ -37,8 +44,3 @@ function showQRcode() {
         $( ".modal" ).hide();
     });
 }
-
-$(function () {
-    foldOrStretchRanking();
-    showQRcode();
-});
