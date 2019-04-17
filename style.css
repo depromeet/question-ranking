@@ -13,6 +13,111 @@ body {
     font-family: NotoSansCJKkr;
 }
 
+#initial-body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #feb519;
+}
+
+.initial-col-1 {
+    height: 38%;
+    display: flex;
+    justify-content: center;
+}
+
+.initial-col-2 {
+    height: 24%;
+    display: flex;
+    justify-content: center;
+}
+
+.initial-col-3 {
+    height: 38%;
+}
+
+.initial-col-1-1 {
+    height: 38px;
+    display: flex;
+    width: 91.66vw;
+    justify-content: space-between;
+}
+
+.initial-background-button {
+    justify-content: flex-end;
+    padding-top: 42px;
+}
+
+.initial-background-button img {
+    height: fit-content;
+    padding-left: 8px;
+}
+
+.initial-box-1 {
+    width: 678px;
+    height: 260px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+}
+
+.initial-box-1 input {
+    width: 614px;
+    height: 36px;
+    font-family: NotoSansCJKkr;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.initial-box-1 input::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.seminar-title {
+    width: 116px;
+    height: 36px;
+    font-family: NotoSansCJKkr;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 32px;
+}
+
+.under-line {
+    width: 614px;
+    height: 2px;
+    border: solid 1px rgba(112, 112, 112, 0.16);
+    margin-top: 8px;
+    margin-bottom: 46px;
+}
+
+.room-create-button {
+    height: 36px;
+    font-family: NotoSansCJKkr;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.question-ranking-text {
+    padding-top: 42px;
+    opacity: 0.87;
+    font-family: NotoSansCJKkr;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
+
 #scroll {
     display: flex;
     flex-basis: 100%;
@@ -556,5 +661,46 @@ span div {
         bottom: 0;
         width: 100vw;
         background-color: #f1f1f1;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .initial-box-1 {
+        width: 328px;
+        height: 200px;
+        padding: 16px;
+    }
+
+    .initial-box-1 input {
+        width: 296px;
+        height: 24px;
+    }
+
+    .under-line {
+        width: 296px;
+        height: 1px;
+    }
+
+    .seminar-title {
+        width: 77px;
+        height: 24px;
+        font-size: 16px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .question-ranking-text {
+        font-size: 20px;
+        line-height: 1.45;
+    }
+
+    .initial-box-1 input {
+        font-size: 16px;
+    }
+
+    .room-create-button div {
+        width: 44px;
+        height: 24px;
+        font-size: 16px;
     }
 }
