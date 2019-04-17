@@ -64,6 +64,73 @@ const QRcode = function showOrHideQuickResponsiveCode() {
     });
 }
 
+const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
+    const $yellowButton = $('.yellow-button');
+    const $darkButton = $('.dark-button');
+    const $body = $('body');
+    const $blank = $('#blank');
+    const $initialBody = $('#initial-body');
+    const $questionRankingText = $('.question-ranking-text');
+    const $pleaseInputQuestions = $('.please-input-questions');
+    const $modal = $('.modal');
+    const $modalContents = $('.modal-content');
+    const $starBesideNumber = $('span > div');
+
+    $yellowButton.click(function() {
+        $body.css({
+            'background-color': '#f1f1f1'
+        });
+        $blank.css({
+            'background-color': '#f1f1f1'
+        });
+        $initialBody.css({
+            'background-color': '#feb519'
+        })
+        $questionRankingText.css({
+            'color': 'rgba(0, 0, 0, 0.87)'
+        })
+        $pleaseInputQuestions.css({
+            'color': 'rgba(0, 0, 0, 0.87)'
+        })
+        $modal.css({
+            'background-color': 'rgba(0, 0, 0, 0.54)',
+            'border': '1px solid #888'
+        })
+        $modalContents.css({
+            'border': '1px solid #888'
+        })
+        $starBesideNumber.css({
+            'color': 'rgba(0, 0, 0, 0.87)'
+        })
+    });
+    $darkButton.click(function() {
+        $body.css({
+            'background-color': '#363a43'
+        });
+        $blank.css({
+            'background-color': '#363a43'
+        });
+        $initialBody.css({
+            'background-color': '#363a43'
+        })
+        $questionRankingText.css({
+            'color': 'rgba(255, 255, 255, 0.87)'
+        })
+        $pleaseInputQuestions.css({
+            'color': 'rgba(255, 255, 255, 0.87)'
+        })
+        $modal.css({
+            'background-color': 'rgba(255, 255, 255, 0.72)',
+        })
+        $modalContents.css({
+            'border': '0'
+        })
+        $starBesideNumber.css({
+            'color': 'rgba(255, 255, 255, 0.87)'
+        })
+    });
+}
+
 $(function () {
     const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     const currentWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -81,4 +148,5 @@ $(function () {
     main(mainFoldedHeight, mainStrechedHeight);
     mobile(mobileFoldedHeight, mobileStrechedHeight);
     QRcode();
+    backgroundColor();
 });

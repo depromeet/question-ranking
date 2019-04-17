@@ -357,8 +357,8 @@ span div {
 }
 
 .before-question-contents {
-    display: flex;
     width: fit-content;
+    display: flex;
     position: relative;
     left: 398px;
     bottom: 395px;
@@ -368,13 +368,16 @@ span div {
     height: 24px;
 }
 
-.question-contents div div {
-    width: 16px;
-    height: 20px;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.43;
+.please-input-questions {
+    height: 27px;
     color: rgba(0, 0, 0, 0.87);
+    font-family: NotoSansCJKkr;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 2px;
 }
 
 .Question-ranking-more {
@@ -520,6 +523,7 @@ span div {
 
     .question-contents {
         height: 100vh;
+        padding-bottom: 92px;
     }
 
      .column-1 {
