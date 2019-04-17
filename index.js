@@ -131,6 +131,29 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     });
 }
 
+const newElement = function createNewElement() {
+    const $textarea = $('textarea');
+    const $ul = $('ul');
+    const $inputSend = $('.input-send');
+    const $mobileInputSend = $('.mobile-input-send');
+
+    $inputSend.click(function() {
+        $ul.append('<div><ol></ol><span></span></div>');
+        $('ol:last').append($textarea.val());
+        $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
+
+        $textarea.val('')
+    });
+    
+    $mobileInputSend.click(function() {
+        $ul.append('<div><ol></ol><span></span></div>');
+        $('ol:last').append($textarea.val());
+        $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
+
+        $textarea.val('')
+    });
+}
+
 $(function () {
     const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     const currentWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -149,4 +172,5 @@ $(function () {
     mobile(mobileFoldedHeight, mobileStrechedHeight);
     QRcode();
     backgroundColor();
+    newElement();
 });
