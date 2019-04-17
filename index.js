@@ -136,6 +136,7 @@ const newElement = function createNewElement() {
     const $ul = $('ul');
     const $inputSend = $('.input-send');
     const $mobileInputSend = $('.mobile-input-send');
+    const $beforeQuestionInput = $('.before-question-contents')
 
     $inputSend.click(function() {
         $ul.append('<div><ol></ol><span></span></div>');
@@ -143,14 +144,16 @@ const newElement = function createNewElement() {
         $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
 
         $textarea.val('')
+        $beforeQuestionInput.hide();
     });
-    
+
     $mobileInputSend.click(function() {
         $ul.append('<div><ol></ol><span></span></div>');
         $('ol:last').append($textarea.val());
         $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
 
         $textarea.val('')
+        $beforeQuestionInput.hide();
     });
 }
 
