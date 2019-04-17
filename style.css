@@ -13,6 +13,11 @@ body {
     font-family: NotoSansCJKkr;
 }
 
+#scroll {
+    display: flex;
+    flex-basis: 100%;
+}
+
 .column-1 {
     flex-basis: 28%;
     display: flex;
@@ -377,6 +382,9 @@ span div {
     body {
         width: 100%;
         flex-direction: column;
+    }
+
+    #scroll {
         overflow: scroll;
     }
 
@@ -462,6 +470,10 @@ span div {
 
     .question-input {
         justify-content: space-between;
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
     }
 
     textarea {
@@ -533,5 +545,16 @@ span div {
         display: flex;
         justify-content: flex-end;
     }
+    
+    #scroll {
+        display: block;
+    }
 
+    #blank {
+        position: fixed;
+        height: 15.84px;
+        bottom: 0;
+        width: 100vw;
+        background-color: #f1f1f1;
+    }
 }
