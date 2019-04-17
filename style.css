@@ -671,6 +671,14 @@ span div {
         padding: 16px;
     }
 
+    .initial-col-1, .initial-col-3 {
+        height: 34.375vh;
+    }
+
+    .initial-col-2 {
+        height: 31.25vh;
+    }
+
     .initial-box-1 input {
         width: 296px;
         height: 24px;
@@ -702,5 +710,6 @@ span div {
         width: 44px;
         height: 24px;
         font-size: 16px;
+        margin-top: 8px;
     }
 }
