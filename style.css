@@ -214,8 +214,10 @@ body {
 .circle-button-2 {
     height: fit-content;
     position: relative;
-    left: 888px;
-    bottom: 8px;
+    left: 911px;
+    top: 8px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 100%;
 }
 
 .pass-down-button:hover, .pass-up-button:hover, .box-5-title-3:hover {
@@ -238,15 +240,16 @@ body {
 .fold-button {
     float: right;
     position: relative;
-    left: 46px;
-    bottom: 8px;
     display: contents;
 }
 
 .more-button {
     position: relative;
-    left: 736px;
-    top: 18px;
+    left: 759px;
+    top: 33px;
+    height: 48px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 100%;
 }
 
 .Question-ranking-row-1 {
@@ -480,7 +483,7 @@ span div {
     display: none;
 }
 
-.mobile-fold-button img {
+.mobile-circle-button-2 {
     display: none;
 }
 
@@ -643,12 +646,6 @@ span div {
         display: none;
     }
 
-    .mobile-fold-button img {
-        display: block;
-        position: relative;
-        left: 23px;
-    }
-
     .mobile-fold-button {
         display: flex;
         justify-content: flex-end;
@@ -665,6 +662,25 @@ span div {
         width: 100vw;
         background-color: #f1f1f1;
     }
+    
+    .mobile-circle-button {
+        width: 32px;
+        height: 32px;
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 100%;
+        position: relative;
+        right: 21px;
+        top: 17px;
+    }
+
+    .mobile-circle-button-2 {
+        display: block;
+        width: 32px;
+        height: 32px;
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 100%;
+        position: relative;
+        top: 17px;
 }
 
 @media screen and (max-width: 678px) {

@@ -3,8 +3,8 @@ const main = function changeRankingHeight(foldedHeight, strechedHeight) {
     const $questionRankingMore = $('.Question-ranking-more');
     const $questionContents = $('.question-contents');
     const $foldButton = $('.fold-button');
-    const $passDownButton = $('.pass-down-button');
-    const $passUpButton = $('.pass-up-button');
+    const $passDownButton = $('.more-button');
+    const $passUpButton = $('.fold-button');
 
     $questionRankingMore.hide();
     $foldButton.hide();
@@ -74,7 +74,7 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     const $pleaseInputQuestions = $('.please-input-questions');
     const $modal = $('.modal');
     const $modalContents = $('.modal-content');
-    const $starBesideNumber = $('span > div');
+    var $starBesideNumber = $('span > div');
 
     $yellowButton.click(function() {
         $body.css({
