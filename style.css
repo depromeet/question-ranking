@@ -22,19 +22,20 @@ body {
 }
 
 .initial-col-1 {
-    height: 38%;
+    height: 38vh;
     display: flex;
     justify-content: center;
 }
 
 .initial-col-2 {
-    height: 24%;
+    height: 260px;
     display: flex;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .initial-col-3 {
-    height: 38%;
+    height: 38vh;
 }
 
 .initial-col-1-1 {
@@ -115,7 +116,16 @@ body {
     font-weight: 300;
     line-height: 1.5;
     color: rgba(0, 0, 0, 0.87);
-  }
+}
+
+.ranking-text {
+    /* word-wrap: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; */
+    width: fit-content;
+}
 
 #scroll {
     display: flex;
@@ -215,7 +225,7 @@ body {
     height: fit-content;
     position: relative;
     left: 911px;
-    top: 8px;
+    top: 30px;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
     border-radius: 100%;
 }
@@ -274,6 +284,8 @@ body {
 }
 
 .question-input {
+    position: fixed;
+    bottom: 40px;
     height: 92px;
     display: flex;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
@@ -384,7 +396,8 @@ span div {
 
 .Question-ranking-more {
     width: 100%;
-    height: 206px;
+    min-height: 206px;
+    height: fit-content;
     border-radius: 5px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
@@ -392,20 +405,20 @@ span div {
     padding-top: 16px;
     padding-left: 33px;
     padding-right: 28px;
-    padding-bottom: 34px;
     font-size: 14px;
     line-height: 1.43;
     color: rgba(0, 0, 0, 0.87);
 }
 
 .top-1 {
-    height: 40px;
+    /* height: 40px; */
+    height: fit-content;
     margin-bottom: 8px;
     display: flex;
 }
 
 .top-2 {
-    height: 60px;
+    height: fit-content;
     border-top: 2px solid rgba(112, 112, 112, 0.16);
     border-bottom: 2px solid rgba(112, 112, 112, 0.16);
     display: flex;
@@ -414,7 +427,7 @@ span div {
 }
 
 .top-3 {
-    height: 40px;
+    height: fit-content;
     margin-top: 8px;
     display: flex;
 }
@@ -485,6 +498,10 @@ span div {
 
 .mobile-circle-button-2 {
     display: none;
+}
+
+.dark-version {
+    color: rgba(255, 255, 255, 0.87);
 }
 
 @media screen and (max-width: 425px) {
@@ -633,13 +650,14 @@ span div {
     }
 
     .ranking-text {
-        word-wrap: break-word;
+        /* word-wrap: break-word;
         display: -webkit-box;
         overflow: hidden;
         -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+        -webkit-box-orient: vertical; */
         width: fit-content;
-        height: 40px;
+        height: fit-content;
+        min-height: 40px;
     }
 
     .fold-button {

@@ -3,13 +3,12 @@ const main = function changeRankingHeight(foldedHeight, strechedHeight) {
     const $questionRankingMore = $('.Question-ranking-more');
     const $questionContents = $('.question-contents');
     const $foldButton = $('.fold-button');
-    const $passDownButton = $('.more-button');
-    const $passUpButton = $('.fold-button');
+    const $moreButton = $('.more-button');
 
     $questionRankingMore.hide();
     $foldButton.hide();
     
-    $passDownButton.click(function(){
+    $moreButton.click(function(){
         $questionRanking.hide();
         $questionRankingMore.show();
         $foldButton.show();
@@ -18,7 +17,7 @@ const main = function changeRankingHeight(foldedHeight, strechedHeight) {
         });
     });
     
-    $passUpButton.click(function(){
+    $foldButton.click(function(){
         $questionRanking.show();
         $questionRankingMore.hide();
         $foldButton.hide();
@@ -52,7 +51,7 @@ const mobile = function mobileChangeRankingHeight(foldedHeight, strechedHeight) 
     });
 }
 
-const QRcode = function showOrHideQuickResponsiveCode() {
+const showQRcode = function showOrHideQuickResponsiveCode() {
     const $quickResponsiveCode = $('.box-5-title-3');
     const $modal = $('.modal');
 
@@ -74,7 +73,6 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     const $pleaseInputQuestions = $('.please-input-questions');
     const $modal = $('.modal');
     const $modalContents = $('.modal-content');
-    var $starBesideNumber = $('span > div');
 
     $yellowButton.click(function() {
         $body.css({
@@ -99,9 +97,7 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
         $modalContents.css({
             'border': '1px solid #888'
         })
-        $starBesideNumber.css({
-            'color': 'rgba(0, 0, 0, 0.87)'
-        })
+        $('span > div').removeClass('dark-version');
     });
     $darkButton.click(function() {
         $body.css({
@@ -125,9 +121,7 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
         $modalContents.css({
             'border': '0'
         })
-        $starBesideNumber.css({
-            'color': 'rgba(255, 255, 255, 0.87)'
-        })
+        $('span > div').addClass('dark-version');
     });
 }
 
@@ -139,21 +133,31 @@ const newElement = function createNewElement() {
     const $beforeQuestionInput = $('.before-question-contents')
 
     $inputSend.click(function() {
-        $ul.append('<div><ol></ol><span></span></div>');
-        $('ol:last').append($textarea.val());
-        $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
+        if ($textarea.val() === '') {
+            alert('질문을 입력해주세요.');
+        } else {
+            $ul.append('<div><ol></ol><span></span></div>');
+            $('ol:last').append($textarea.val());
+            $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
+            $('span:last > div').addClass($('span:first > div').attr('class'));
 
-        $textarea.val('')
-        $beforeQuestionInput.hide();
+            $textarea.val('')
+            $beforeQuestionInput.hide();
+        }
     });
 
     $mobileInputSend.click(function() {
-        $ul.append('<div><ol></ol><span></span></div>');
-        $('ol:last').append($textarea.val());
-        $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
+        if ($textarea.val() === '') {
+            alert('질문을 입력해주세요.');
+        } else {
+            $ul.append('<div><ol></ol><span></span></div>');
+            $('ol:last').append($textarea.val());
+            $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
+            $('span:last > div').addClass($('span:first > div').attr('class'));
 
-        $textarea.val('')
-        $beforeQuestionInput.hide();
+            $textarea.val('');
+            $beforeQuestionInput.hide();
+        }
     });
 }
 
@@ -163,7 +167,11 @@ $(function () {
     const mobileFoldedHeight = parseInt(currentHeight-110)+"px";
     const mobileStrechedHeight = parseInt(currentHeight-256)+"px";
     const mainFoldedHeight = parseInt(currentHeight-232)+"px";
-    const mainStrechedHeight = parseInt(currentHeight-378)+"px";
+    
+    var $questionRankingMoreHeight = $('.Question-ranking-more').css('height').replace('px', '');
+    
+    // var mainStrechedHeight = parseInt(currentHeight-378)+"px";
+    var mainStrechedHeight = parseInt(currentHeight-parseInt($questionRankingMoreHeight)-172)+"px";
 
     if ( currentWidth < 425 ) {
         $( ".question-contents" ).css( "height", mobileFoldedHeight );
@@ -173,7 +181,7 @@ $(function () {
     
     main(mainFoldedHeight, mainStrechedHeight);
     mobile(mobileFoldedHeight, mobileStrechedHeight);
-    QRcode();
+    showQRcode();
     backgroundColor();
     newElement();
 });
