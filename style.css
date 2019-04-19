@@ -118,18 +118,13 @@ body {
     color: rgba(0, 0, 0, 0.87);
 }
 
-.ranking-text {
-    /* word-wrap: break-word;
+.text-more {
+    word-wrap: break-word;
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical; */
+    -webkit-box-orient: vertical;
     width: fit-content;
-}
-
-#scroll {
-    display: flex;
-    flex-basis: 100%;
 }
 
 .column-1 {
@@ -284,8 +279,6 @@ body {
 }
 
 .question-input {
-    position: fixed;
-    bottom: 40px;
     height: 92px;
     display: flex;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
@@ -371,11 +364,10 @@ span div {
 }
 
 .before-question-contents {
-    width: fit-content;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
     display: flex;
-    position: relative;
-    left: 398px;
-    bottom: 395px;
 }
 
 .question-contents div img {
@@ -504,15 +496,19 @@ span div {
     color: rgba(255, 255, 255, 0.87);
 }
 
+.more-rank-1, .more-rank-2, .more-rank-3, .fold-rank-1, .fold-rank-2, .fold-rank-3 {
+    opacity: 0.87;
+    font-size: 14px;
+    line-height: 1.43;
+    color: rgba(0, 0, 0, 0.54);
+    justify-self: end;
+}
+
 @media screen and (max-width: 425px) {
 
     body {
         width: 100%;
         flex-direction: column;
-    }
-
-    #scroll {
-        overflow: scroll;
     }
 
     .box-5 {
@@ -605,7 +601,7 @@ span div {
     }
 
     textarea {
-        width: 270px;
+        width: 82.5%;
         padding-right: 0;
     }
     
@@ -649,7 +645,7 @@ span div {
         padding-top: 16px;
     }
 
-    .ranking-text {
+    .text-more {
         /* word-wrap: break-word;
         display: -webkit-box;
         overflow: hidden;
@@ -667,10 +663,6 @@ span div {
     .mobile-fold-button {
         display: flex;
         justify-content: flex-end;
-    }
-    
-    #scroll {
-        display: block;
     }
 
     #blank {
@@ -699,6 +691,7 @@ span div {
         border-radius: 100%;
         position: relative;
         top: 17px;
+    }
 }
 
 @media screen and (max-width: 678px) {
