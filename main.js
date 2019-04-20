@@ -165,14 +165,10 @@ const moreOrFold = function questionRankingTopThreeTextMoreOrFold() {
 
     const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-    if ($('.ranking-text-rank-1').text().length < 240) {
-        $('.more-rank-1').hide();
-    }
-    if ($('.ranking-text-rank-2').text().length < 240) {
-        $('.more-rank-2').hide();
-    }
-    if ($('.ranking-text-rank-3').text().length < 240) {
-        $('.more-rank-3').hide();
+    for (var i = 0; i < 4; i++) {
+        if ($('.ranking-text-rank-'+i).text().length < 172) {
+            $('.more-rank-'+i).hide();
+        }
     }
     
     $('.fold-rank-'+1).hide();
@@ -251,6 +247,23 @@ const moreOrFold = function questionRankingTopThreeTextMoreOrFold() {
     });
 }
 
+const copyURL = function pressCopyButtonThenCopyClipboard() {
+    $('.box-5-col-1-contents-2 > img').click(function() {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($('.url-address').text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+
+        $('.url-copy-button').hide();
+        $('.url-copy-animation').show();
+        setTimeout(function() {
+            $('.url-copy-animation').hide();
+            $('.url-copy-button').show();
+        }, 4500);
+    });
+}
+
 $(function () {
     const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     const currentWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -275,4 +288,5 @@ $(function () {
     backgroundColor();
     newElement();
     moreOrFold();
+    copyURL();
 });

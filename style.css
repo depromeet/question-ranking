@@ -225,23 +225,6 @@ body {
     border-radius: 100%;
 }
 
-.pass-down-button:hover, .pass-up-button:hover, .box-5-title-3:hover {
-    cursor: pointer;
-}
-
-.pass-down-button {
-    height: fit-content;
-    position: relative;
-    right: 61.5px;
-    bottom: 44.5px;
-}
-
-.pass-up-button {
-    position: relative;
-    left: 826.5px;
-    bottom: 52.5px;
-}
-
 .fold-button {
     float: right;
     position: relative;
@@ -447,7 +430,6 @@ span div {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 361px;
     left: 0;
     top: 0;
     width: 100%;
@@ -457,6 +439,8 @@ span div {
 }
   
 .modal-content {
+    position: relative;
+    top: 33.33vh;
     margin: auto;
     padding: 30px;
     border: 1px solid #888;
@@ -502,6 +486,12 @@ span div {
     line-height: 1.43;
     color: rgba(0, 0, 0, 0.54);
     justify-self: end;
+}
+
+.url-copy-animation {
+    position: relative;
+    bottom: 24px;
+    display: none;
 }
 
 @media screen and (max-width: 425px) {
@@ -625,10 +615,6 @@ span div {
     .modal-content img {
         width: 215px;
         height: 215px;
-    }
-
-    .modal {
-        padding-top: 189.8px;
     }
 
     .star-and-number div {
