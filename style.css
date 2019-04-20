@@ -694,7 +694,7 @@ span div {
     }
 }
 
-@media screen and (max-width: 678px) {
+@media screen and (max-width: 679px) {
     .initial-box-1 {
         width: 328px;
         height: 200px;
@@ -741,5 +741,19 @@ span div {
         height: 24px;
         font-size: 16px;
         margin-top: 8px;
+    }
+}
+
+@media screen and (max-width: 328px) {
+    .initial-box-1 {
+        width: 100%;
+    }
+
+    .initial-box-1 input {
+        width: 100%;
+    }
+
+    .under-line {
+        width: 100%;
     }
 }
