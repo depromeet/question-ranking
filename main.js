@@ -163,13 +163,25 @@ const newElement = function createNewElement() {
 
 const moreOrFold = function questionRankingTopThreeTextMoreOrFold() {
 
+    const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+    if ($('.ranking-text-rank-1').text().length < 240) {
+        $('.more-rank-1').hide();
+    }
+    if ($('.ranking-text-rank-2').text().length < 240) {
+        $('.more-rank-2').hide();
+    }
+    if ($('.ranking-text-rank-3').text().length < 240) {
+        $('.more-rank-3').hide();
+    }
+    
     $('.fold-rank-'+1).hide();
 
     $('.more-rank-'+1).click(function() {
         $('.ranking-text-rank-'+1).removeClass('text-more');
         $('.more-rank-'+1).hide();
         $('.fold-rank-'+1).show();
-        const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        
         const $questionRankingMoreHeight = $('.Question-ranking-more').css('height').replace('px', '');
         const mainStrechedHeight = parseInt(currentHeight-parseInt($questionRankingMoreHeight)-172)+"px";
         $('.question-contents').css({
@@ -180,7 +192,7 @@ const moreOrFold = function questionRankingTopThreeTextMoreOrFold() {
         $('.ranking-text-rank-'+1).addClass('text-more');
         $('.more-rank-'+1).show();
         $('.fold-rank-'+1).hide();
-        const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
         const $questionRankingMoreHeight = $('.Question-ranking-more').css('height').replace('px', '');
         const mainStrechedHeight = parseInt(currentHeight-parseInt($questionRankingMoreHeight)-172)+"px";
         $('.question-contents').css({
@@ -194,7 +206,7 @@ const moreOrFold = function questionRankingTopThreeTextMoreOrFold() {
         $('.ranking-text-rank-'+2).removeClass('text-more');
         $('.more-rank-'+2).hide();
         $('.fold-rank-'+2).show();
-        const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
         const $questionRankingMoreHeight = $('.Question-ranking-more').css('height').replace('px', '');
         const mainStrechedHeight = parseInt(currentHeight-parseInt($questionRankingMoreHeight)-172)+"px";
         $('.question-contents').css({
@@ -205,7 +217,7 @@ const moreOrFold = function questionRankingTopThreeTextMoreOrFold() {
         $('.ranking-text-rank-'+2).addClass('text-more');
         $('.more-rank-'+2).show();
         $('.fold-rank-'+2).hide();
-        const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
         const $questionRankingMoreHeight = $('.Question-ranking-more').css('height').replace('px', '');
         const mainStrechedHeight = parseInt(currentHeight-parseInt($questionRankingMoreHeight)-172)+"px";
         $('.question-contents').css({
@@ -219,7 +231,7 @@ const moreOrFold = function questionRankingTopThreeTextMoreOrFold() {
         $('.ranking-text-rank-'+3).removeClass('text-more');
         $('.more-rank-'+3).hide();
         $('.fold-rank-'+3).show();
-        const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
         const $questionRankingMoreHeight = $('.Question-ranking-more').css('height').replace('px', '');
         const mainStrechedHeight = parseInt(currentHeight-parseInt($questionRankingMoreHeight)-172)+"px";
         $('.question-contents').css({
@@ -230,7 +242,7 @@ const moreOrFold = function questionRankingTopThreeTextMoreOrFold() {
         $('.ranking-text-rank-'+3).addClass('text-more');
         $('.more-rank-'+3).show();
         $('.fold-rank-'+3).hide();
-        const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
         const $questionRankingMoreHeight = $('.Question-ranking-more').css('height').replace('px', '');
         const mainStrechedHeight = parseInt(currentHeight-parseInt($questionRankingMoreHeight)-172)+"px";
         $('.question-contents').css({

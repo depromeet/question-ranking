@@ -607,9 +607,6 @@ span div {
     
     .before-question-contents {
         width: 100%;
-        position: relative;
-        bottom: 198px;
-        left: 0;
         justify-content: center;
     }
 
