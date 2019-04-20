@@ -152,6 +152,24 @@ body {
     padding: 16px;
 }
 
+.box-5-qr-code {
+    height: 384px;
+}
+
+.qr-code-fold-button {
+    position: relative;
+    left: 55px;
+    height: fit-content;
+    top: 8px;
+}
+
+.qr-code-more-button {
+    position: relative;
+    left: 50px;
+    top: 2px;
+    height: fit-content;
+}
+
 .box-5-title-1, .box-5-title-2, .box-5-title-3 {
     font-size: 18px;
     font-weight: 500;
@@ -494,6 +512,25 @@ span div {
     display: none;
 }
 
+.box-qr-code {
+    width: 160.5px;
+    margin-top: 10px;
+    margin-left: 3px;
+}
+
+.show-qr-code {
+    width: fit-content;
+}
+
+.mobile-show-qr-code {
+    width: fit-content;
+    display: none;
+}
+
+.show-qr-code-button {
+    display: flex;
+}
+
 @media screen and (max-width: 425px) {
 
     body {
@@ -674,6 +711,18 @@ span div {
         border-radius: 100%;
         position: relative;
         top: 17px;
+    }
+
+    .qr-code-more-button {
+        display: none;
+    }
+
+    .mobile-show-qr-code {
+        display: block;
+    }
+
+    .show-qr-code {
+        display: none;
     }
 }
 

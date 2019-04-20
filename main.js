@@ -52,10 +52,33 @@ const mobile = function mobileChangeRankingHeight(foldedHeight, strechedHeight) 
 }
 
 const showQRcode = function showOrHideQuickResponsiveCode() {
-    const $quickResponsiveCode = $('.box-5-title-3');
     const $modal = $('.modal');
 
-    $quickResponsiveCode.click(function() {
+    $('.box-qr-code').hide();
+    $('.qr-code-fold-button').hide();
+
+    $('.qr-code-more-button').click(function() {
+        $('.box-5').css({
+            'height': '384px'
+        })
+        $('.box-qr-code').show();
+        $('.qr-code-fold-button').show();
+        $('.qr-code-more-button').hide();
+    });
+
+    $('.qr-code-fold-button').click(function() {
+        $('.box-5').css({
+            'height': '208px'
+        })
+        $('.box-qr-code').hide();
+        $('.qr-code-fold-button').hide();
+        $('.qr-code-more-button').show();
+    });
+
+    $('.box-qr-code').click(function() {
+        $modal.show();
+    });
+    $('.mobile-show-qr-code').click(function() {
         $modal.show();
     });
     $modal.click(function() {
@@ -161,7 +184,7 @@ const newElement = function createNewElement() {
     });
 }
 
-const moreOrFold = function questionRankingTopThreeTextMoreOrFold() {
+const questionRanking = function questionRankingTopThreeTextMoreOrFold() {
 
     const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
@@ -274,7 +297,6 @@ $(function () {
     const $questionRankingMoreHeight = $('.Question-ranking-more').css('height').replace('px', '');
     const mainStrechedHeight = parseInt(currentHeight-parseInt($questionRankingMoreHeight)-172)+"px";
     const mainFoldedHeight = parseInt(currentHeight-232)+"px";
-    // var mainStrechedHeight = parseInt(currentHeight-378)+"px";
 
     if ( currentWidth <= 425 ) {
         $( ".question-contents" ).css( "height", mobileFoldedHeight );
@@ -287,6 +309,6 @@ $(function () {
     showQRcode();
     backgroundColor();
     newElement();
-    moreOrFold();
+    questionRanking();
     copyURL();
 });
