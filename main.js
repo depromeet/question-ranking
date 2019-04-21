@@ -156,8 +156,8 @@ const newElement = function createNewElement() {
     const $beforeQuestionInput = $('.before-question-contents')
 
     $inputSend.click(function() {
-        if ($textarea.val() === '') {
-            alert('질문을 입력해주세요.');
+        if ($inputSend.hasClass('input-send-dim')) {
+            console.log('질문을 입력하세요.');
         } else {
             $ul.append('<div><ol></ol><span></span></div>');
             $('ol:last').append($textarea.val());
@@ -166,14 +166,15 @@ const newElement = function createNewElement() {
             $('span:last > div').addClass($('span > div').attr('class'));
 
             $textarea.val('')
+            $inputSend.addClass('input-send-dim');
             $beforeQuestionInput.hide();
             pressLikedButtonSoThatTransformToYellowStar();
         }
     });
 
     $mobileInputSend.click(function() {
-        if ($textarea.val() === '') {
-            alert('질문을 입력해주세요.');
+        if (!$mobileInputSend.hasClass('mobile-input-send-dim')) {
+            console.log('질문을 입력하세요.');
         } else {
             $ul.append('<div><ol></ol><span></span></div>');
             $('ol:last').append($textarea.val());
@@ -181,6 +182,7 @@ const newElement = function createNewElement() {
             $('span:last > div').addClass($('span > div').attr('class'));
 
             $textarea.val('');
+            $mobileInputSend.removeClass('mobile-input-send-dim');
             $beforeQuestionInput.hide();
             pressLikedButtonSoThatTransformToYellowStar();
         }
@@ -294,10 +296,38 @@ function pressLikedButtonSoThatTransformToYellowStar(){
     $('.white-star').click(function() {
         var $this = $(this);
 
-        $this.attr('src', './images/Star_interaction.gif');
+        $this.addClass('yellow-star');
+        $this.attr('src', './images/Star_interaction'+ Math.floor(Math.random() * 6) +'.gif');
+        
         setTimeout(function() {
             $this.attr('src', './images/one_star.png');
         }, 3000);
+    
+        $this.click(function() {    
+            $this.removeClass('yellow-star');
+            $this.attr('src', './images/white-star.png');
+        });
+    });
+}
+
+function beforeKeyPressInputSendButtonIsDim() {
+    const $inputSend = $('.input-send');
+    const $textarea = $('textarea');
+
+    $textarea.keyup(function(){
+        if ($textarea.val() === '') {
+            $inputSend.addClass('input-send-dim');
+        } else {
+            $inputSend.removeClass('input-send-dim');
+        }
+    });
+
+    $textarea.keyup(function() {
+        if ($textarea.val() === '') {
+            $('.mobile-input-send').removeClass('mobile-input-send-dim');
+        } else {
+            $('.mobile-input-send').addClass('mobile-input-send-dim');
+        }
     });
 }
 
@@ -325,4 +355,6 @@ $(function () {
     newElement();
     questionRanking();
     copyURL();
+    pressLikedButtonSoThatTransformToYellowStar();
+    beforeKeyPressInputSendButtonIsDim();
 });

@@ -321,6 +321,10 @@ textarea::placeholder {
     align-items: flex-end;
 }
 
+.input-send-dim {
+    background-color: rgba(254, 183, 26, 0.3);
+}
+
 ol {
     min-height: 52px;
     border-radius: 5px;
@@ -723,6 +727,11 @@ span div {
 
     .show-qr-code {
         display: none;
+    }
+    
+    .mobile-input-send-dim {
+        background-color: #feb71a;
+        border-radius: 100%;
     }
 }
 
