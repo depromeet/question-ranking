@@ -98,6 +98,7 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     const $modalContents = $('.modal-content');
 
     $yellowButton.click(function() {
+        $body.removeClass('dark-version');
         $body.css({
             'background-color': '#f1f1f1'
         });
@@ -123,6 +124,7 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
         $('span > div').removeClass('dark-version');
     });
     $darkButton.click(function() {
+        $body.addClass('dark-version');
         $body.css({
             'background-color': '#363a43'
         });
@@ -163,7 +165,7 @@ const newElement = function createNewElement() {
             $('ol:last').append($textarea.val());
             $('span:last').append('<img src="./images/white-star.png" alt="Button to recommend questions"><div>0</div>')
             $('span:last > img').addClass('white-star');
-            $('span:last > div').addClass($('span > div').attr('class'));
+            $('span:last > div').addClass($('body').attr('class'));
 
             $textarea.val('')
             $inputSend.addClass('input-send-dim');
@@ -179,7 +181,7 @@ const newElement = function createNewElement() {
             $ul.append('<div><ol></ol><span></span></div>');
             $('ol:last').append($textarea.val());
             $('span:last').append('<img src="./images/white-star.png" alt="Button to recommend questions"><div>0</div>')
-            $('span:last > div').addClass($('span > div').attr('class'));
+            $('span:last > div').addClass($('body').attr('class'));
 
             $textarea.val('');
             $mobileInputSend.removeClass('mobile-input-send-dim');
