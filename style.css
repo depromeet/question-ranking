@@ -79,7 +79,6 @@ body {
 }
 
 .seminar-title {
-    width: 116px;
     height: 36px;
     font-family: NotoSansCJKkr;
     font-size: 24px;
@@ -770,7 +769,6 @@ input {
     }
 
     .seminar-title {
-        width: 77px;
         height: 24px;
         font-size: 16px;
         margin-top: 16px;
@@ -787,7 +785,6 @@ input {
     }
 
     .room-create-button div {
-        width: 44px;
         height: 24px;
         font-size: 16px;
         margin-top: 8px;

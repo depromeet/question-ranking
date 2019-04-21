@@ -299,20 +299,26 @@ function pressLikedButtonSoThatTransformToYellowStar(){
         var $this = $(this);
 
         $this.addClass('yellow-star');
-        $this.attr('src', './images/Star_interaction'+ Math.floor(Math.random() * 6) +'.gif');
-        
-        setTimeout(function() {
-            $this.attr('src', './images/one_star.png');
-        }, 3000);
+        // $this.attr('src', './images/Star_interaction'+ Math.floor(Math.random() * 6) +'.gif');
+        $this.attr('src', './images/one_star.png');
+
+        // setTimeout(function() {
+        //     $this.attr('src', './images/one_star.png');
+        // }, 3000);
     
         $this.click(function() {    
             $this.removeClass('yellow-star');
             $this.attr('src', './images/white-star.png');
         });
     });
+    
+    $('.white-star').click(function() {
+
+    });
+    
 }
 
-function beforeKeyPressInputSendButtonIsDim() {
+const dim = function beforeKeyPressInputSendButtonIsDim() {
     const $inputSend = $('.input-send');
     const $textarea = $('textarea');
 
@@ -358,5 +364,5 @@ $(function () {
     questionRanking();
     copyURL();
     pressLikedButtonSoThatTransformToYellowStar();
-    beforeKeyPressInputSendButtonIsDim();
+    dim();
 });

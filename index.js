@@ -34,7 +34,7 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     });
 }
 
-function beforeKeyPressCreateRoomButtonIsDim() {
+const dim = function beforeKeyPressCreateRoomButtonIsDim() {
     const $createRoom = $('.create-room');
     const $input = $('input');
 
@@ -43,11 +43,20 @@ function beforeKeyPressCreateRoomButtonIsDim() {
             $createRoom.removeClass('create-room-dim');
         } else {
             $createRoom.addClass('create-room-dim');
+            pageMovement();
         }
+    });
+}
+
+function pageMovement() {
+    const $createRoom = $('.create-room');
+
+    $createRoom.click(function(){
+        location.replace("./main.html")
     });
 }
 
 $(function () {
     backgroundColor();
-    beforeKeyPressCreateRoomButtonIsDim();
+    dim();
 });
