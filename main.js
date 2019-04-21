@@ -312,7 +312,7 @@ const changeStarColor = function pressLikedButtonSoThatTransformToYellowStar() {
             $this.attr('src', './images/Star_interaction_' + Math.floor(Math.random() * 6) + '.gif');
             setTimeout(function() {
                 $this.attr('src', './images/one_star.png');
-            }, 3000);
+            }, 2800);
             $this.toggleClass('yellow-star');
             counterLikedNumber++;
             $this.next().text(counterLikedNumber);
