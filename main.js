@@ -7,24 +7,28 @@ const main = function changeRankingHeight(foldedHeight) {
 
     $questionRankingMore.hide();
     $foldButton.hide();
-    
-    $moreButton.click(function(){
-        $questionRanking.hide();
-        $questionRankingMore.show();
-        $foldButton.show();
-        $questionContents.css({
-            'height': parseInt(Math.max(document.documentElement.clientHeight, window.innerHeight || 0)-parseInt($('.Question-ranking-more').css('height').replace('px', ''))-172)+"px"
+
+    if ($('.ranking-text-rank-1').text() === '') {
+        $('.circle-button').attr('src', './images/more-button-dim.png');
+    } else {
+        $moreButton.click(function(){
+            $questionRanking.hide();
+            $questionRankingMore.show();
+            $foldButton.show();
+            $questionContents.css({
+                'height': parseInt(Math.max(document.documentElement.clientHeight, window.innerHeight || 0)-parseInt($('.Question-ranking-more').css('height').replace('px', ''))-172)+"px"
+            });
         });
-    });
     
-    $foldButton.click(function(){
-        $questionRanking.show();
-        $questionRankingMore.hide();
-        $foldButton.hide();
-        $questionContents.css({
-            'height': foldedHeight,
+        $foldButton.click(function(){
+            $questionRanking.show();
+            $questionRankingMore.hide();
+            $foldButton.hide();
+            $questionContents.css({
+                'height': foldedHeight,
+            });
         });
-    });
+    }
 }
 
 const mobile = function mobileChangeRankingHeight(foldedHeight, strechedHeight) {
@@ -34,21 +38,25 @@ const mobile = function mobileChangeRankingHeight(foldedHeight, strechedHeight) 
     const $circleButton = $('.mobile-circle-button');
     const $secondCircleButton = $('.mobile-circle-button-2')
 
-    $circleButton.click(function() {
-        $questionRanking.hide();
-        $questionRankingMore.show();
-        $questionContents.css({
-            'height': strechedHeight,
+    if ($('.ranking-text-rank-1').text() === '') {
+        $('.mobile-circle-button').attr('src', './images/more-button-dim.png');
+    } else {
+        $circleButton.click(function() {
+            $questionRanking.hide();
+            $questionRankingMore.show();
+            $questionContents.css({
+                'height': strechedHeight,
+            });
         });
-    });
-
-    $secondCircleButton.click(function() {
-        $questionRanking.show();
-        $questionRankingMore.hide();
-        $questionContents.css({
-            'height': foldedHeight,
+    
+        $secondCircleButton.click(function() {
+            $questionRanking.show();
+            $questionRankingMore.hide();
+            $questionContents.css({
+                'height': foldedHeight,
+            });
         });
-    });
+    }
 }
 
 const showQRcode = function showOrHideQuickResponsiveCode() {
@@ -311,11 +319,6 @@ function pressLikedButtonSoThatTransformToYellowStar(){
             $this.attr('src', './images/white-star.png');
         });
     });
-    
-    $('.white-star').click(function() {
-
-    });
-    
 }
 
 const dim = function beforeKeyPressInputSendButtonIsDim() {
