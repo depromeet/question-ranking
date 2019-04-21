@@ -161,11 +161,13 @@ const newElement = function createNewElement() {
         } else {
             $ul.append('<div><ol></ol><span></span></div>');
             $('ol:last').append($textarea.val());
-            $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
+            $('span:last').append('<img src="./images/white-star.png" alt="Button to recommend questions"><div>0</div>')
+            $('span:last > img').addClass('white-star');
             $('span:last > div').addClass($('span > div').attr('class'));
 
             $textarea.val('')
             $beforeQuestionInput.hide();
+            pressLikedButtonSoThatTransformToYellowStar();
         }
     });
 
@@ -175,11 +177,12 @@ const newElement = function createNewElement() {
         } else {
             $ul.append('<div><ol></ol><span></span></div>');
             $('ol:last').append($textarea.val());
-            $('span:last').append('<img src="./images/one_star.png" alt="Button to recommend questions"><div>0</div>')
+            $('span:last').append('<img src="./images/white-star.png" alt="Button to recommend questions"><div>0</div>')
             $('span:last > div').addClass($('span > div').attr('class'));
 
             $textarea.val('');
             $beforeQuestionInput.hide();
+            pressLikedButtonSoThatTransformToYellowStar();
         }
     });
 }
@@ -287,6 +290,17 @@ const copyURL = function pressCopyButtonThenCopyClipboard() {
     });
 }
 
+function pressLikedButtonSoThatTransformToYellowStar(){
+    $('.white-star').click(function() {
+        var $this = $(this);
+
+        $this.attr('src', './images/Star_interaction.gif');
+        setTimeout(function() {
+            $this.attr('src', './images/one_star.png');
+        }, 3000);
+    });
+}
+
 $(function () {
     const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     const currentWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -299,9 +313,9 @@ $(function () {
     const mainFoldedHeight = parseInt(currentHeight-232)+"px";
 
     if ( currentWidth <= 425 ) {
-        $( ".question-contents" ).css( "height", mobileFoldedHeight );
+        $('.question-contents').css( "height", mobileFoldedHeight );
     } else {
-        $( ".question-contents" ).css( "height", mainFoldedHeight );
+        $('.question-contents').css( "height", mainFoldedHeight );
     }
     
     main(mainFoldedHeight, mainStrechedHeight);
