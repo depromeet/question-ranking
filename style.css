@@ -13,6 +13,119 @@ body {
     font-family: NotoSansCJKkr;
 }
 
+#initial-body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #feb519;
+}
+
+.initial-col-1 {
+    height: 38vh;
+    display: flex;
+    justify-content: center;
+}
+
+.initial-col-2 {
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.initial-col-3 {
+    height: 38vh;
+}
+
+.initial-col-1-1 {
+    height: 38px;
+    display: flex;
+    width: 91.66vw;
+    justify-content: space-between;
+}
+
+.initial-background-button {
+    justify-content: flex-end;
+    padding-top: 42px;
+}
+
+.initial-background-button img {
+    height: fit-content;
+    padding-left: 8px;
+}
+
+.initial-box-1 {
+    width: 678px;
+    height: 260px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+}
+
+.initial-box-1 input {
+    width: 614px;
+    height: 36px;
+    font-family: NotoSansCJKkr;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.initial-box-1 input::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.seminar-title {
+    height: 36px;
+    font-family: NotoSansCJKkr;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 32px;
+}
+
+.under-line {
+    width: 614px;
+    height: 2px;
+    border: solid 1px rgba(112, 112, 112, 0.16);
+    margin-top: 8px;
+    margin-bottom: 46px;
+}
+
+.room-create-button {
+    height: 36px;
+    font-family: NotoSansCJKkr;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.question-ranking-text {
+    padding-top: 42px;
+    opacity: 0.87;
+    font-family: NotoSansCJKkr;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.text-more {
+    word-wrap: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: fit-content;
+}
+
 .column-1 {
     flex-basis: 28%;
     display: flex;
@@ -36,6 +149,24 @@ body {
     margin-top: 40px;
     margin-right: 20px;
     padding: 16px;
+}
+
+.box-5-qr-code {
+    height: 384px;
+}
+
+.qr-code-fold-button {
+    position: relative;
+    left: 55px;
+    height: fit-content;
+    top: 8px;
+}
+
+.qr-code-more-button {
+    position: relative;
+    left: 50px;
+    top: 2px;
+    height: fit-content;
 }
 
 .box-5-title-1, .box-5-title-2, .box-5-title-3 {
@@ -105,39 +236,25 @@ body {
 .circle-button-2 {
     height: fit-content;
     position: relative;
-    left: 888px;
-    bottom: 8px;
-}
-
-.pass-down-button:hover, .pass-up-button:hover, .box-5-title-3:hover {
-    cursor: pointer;
-}
-
-.pass-down-button {
-    height: fit-content;
-    position: relative;
-    right: 61.5px;
-    bottom: 44.5px;
-}
-
-.pass-up-button {
-    position: relative;
-    left: 826.5px;
-    bottom: 52.5px;
+    left: 911px;
+    top: 30px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 100%;
 }
 
 .fold-button {
     float: right;
     position: relative;
-    left: 46px;
-    bottom: 8px;
     display: contents;
 }
 
 .more-button {
     position: relative;
-    left: 736px;
-    top: 18px;
+    left: 759px;
+    top: 33px;
+    height: 48px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 100%;
 }
 
 .Question-ranking-row-1 {
@@ -203,6 +320,10 @@ textarea::placeholder {
     align-items: flex-end;
 }
 
+.input-send-dim {
+    background-color: rgba(254, 183, 26, 0.3);
+}
+
 ol {
     min-height: 52px;
     border-radius: 5px;
@@ -247,29 +368,32 @@ span div {
 }
 
 .before-question-contents {
+    justify-content: center;
+    height: 50%;
+    width: 100%;
     display: flex;
-    width: fit-content;
-    position: relative;
-    left: 398px;
-    bottom: 395px;
 }
 
 .question-contents div img {
     height: 24px;
 }
 
-.question-contents div div {
-    width: 16px;
-    height: 20px;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.43;
+.please-input-questions {
+    height: 27px;
     color: rgba(0, 0, 0, 0.87);
+    font-family: NotoSansCJKkr;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 2px;
 }
 
 .Question-ranking-more {
     width: 100%;
-    height: 206px;
+    min-height: 206px;
+    height: fit-content;
     border-radius: 5px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
@@ -277,20 +401,20 @@ span div {
     padding-top: 16px;
     padding-left: 33px;
     padding-right: 28px;
-    padding-bottom: 34px;
     font-size: 14px;
     line-height: 1.43;
     color: rgba(0, 0, 0, 0.87);
 }
 
 .top-1 {
-    height: 40px;
+    /* height: 40px; */
+    height: fit-content;
     margin-bottom: 8px;
     display: flex;
 }
 
 .top-2 {
-    height: 60px;
+    height: fit-content;
     border-top: 2px solid rgba(112, 112, 112, 0.16);
     border-bottom: 2px solid rgba(112, 112, 112, 0.16);
     display: flex;
@@ -299,7 +423,7 @@ span div {
 }
 
 .top-3 {
-    height: 40px;
+    height: fit-content;
     margin-top: 8px;
     display: flex;
 }
@@ -327,7 +451,6 @@ span div {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 361px;
     left: 0;
     top: 0;
     width: 100%;
@@ -337,6 +460,8 @@ span div {
 }
   
 .modal-content {
+    position: relative;
+    top: 33.33vh;
     margin: auto;
     padding: 30px;
     border: 1px solid #888;
@@ -368,17 +493,61 @@ span div {
     display: none;
 }
 
-.mobile-fold-button img {
+.mobile-circle-button-2 {
     display: none;
+}
+
+.dark-version {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #363a43;
+}
+
+.more-rank-1, .more-rank-2, .more-rank-3, .fold-rank-1, .fold-rank-2, .fold-rank-3 {
+    opacity: 0.87;
+    font-size: 14px;
+    line-height: 1.43;
+    color: rgba(0, 0, 0, 0.54);
+    justify-self: end;
+}
+
+.url-copy-animation {
+    position: relative;
+    bottom: 23px;
+    display: none;
+}
+
+.box-qr-code {
+    width: 160.5px;
+    margin-top: 10px;
+    margin-left: 3px;
+}
+
+.show-qr-code {
+    width: fit-content;
+}
+
+.mobile-show-qr-code {
+    width: fit-content;
+    display: none;
+}
+
+.show-qr-code-button {
+    display: flex;
+}
+
+.create-room-dim {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+input {
+    border: 0;
 }
 
 @media screen and (max-width: 425px) {
 
     body {
         width: 100%;
-        height: 902px;
         flex-direction: column;
-        overflow: scroll;
     }
 
     .box-5 {
@@ -389,6 +558,7 @@ span div {
 
     .column-1 {
         height: 288px;
+        margin-top: 24px;
     }
 
     .column-2 {
@@ -406,7 +576,8 @@ span div {
     }
 
     .question-contents {
-        height: 422px;
+        height: 100vh;
+        padding-bottom: 92px;
     }
 
      .column-1 {
@@ -462,18 +633,19 @@ span div {
 
     .question-input {
         justify-content: space-between;
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
     }
 
     textarea {
-        width: 270px;
+        width: 82.5%;
         padding-right: 0;
     }
     
     .before-question-contents {
         width: 100%;
-        position: relative;
-        bottom: 198px;
-        left: 0;
         justify-content: center;
     }
 
@@ -494,10 +666,6 @@ span div {
         height: 215px;
     }
 
-    .modal {
-        padding-top: 189.8px;
-    }
-
     .star-and-number div {
         margin-right: 8px;
     }
@@ -509,24 +677,19 @@ span div {
         padding-top: 16px;
     }
 
-    .ranking-text {
-        word-wrap: break-word;
+    .text-more {
+        /* word-wrap: break-word;
         display: -webkit-box;
         overflow: hidden;
         -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+        -webkit-box-orient: vertical; */
         width: fit-content;
-        height: 40px;
+        height: fit-content;
+        min-height: 40px;
     }
 
     .fold-button {
         display: none;
-    }
-
-    .mobile-fold-button img {
-        display: block;
-        position: relative;
-        left: 23px;
     }
 
     .mobile-fold-button {
@@ -534,4 +697,110 @@ span div {
         justify-content: flex-end;
     }
 
+    #blank {
+        position: fixed;
+        height: 15.84px;
+        bottom: 0;
+        width: 100vw;
+        background-color: #f1f1f1;
+    }
+    
+    .mobile-circle-button {
+        width: 32px;
+        height: 32px;
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 100%;
+        position: relative;
+        right: 21px;
+        top: 17px;
+    }
+
+    .mobile-circle-button-2 {
+        display: block;
+        width: 32px;
+        height: 32px;
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 100%;
+        position: relative;
+        top: 17px;
+    }
+
+    .qr-code-more-button {
+        display: none;
+    }
+
+    .mobile-show-qr-code {
+        display: block;
+    }
+
+    .show-qr-code {
+        display: none;
+    }
+    
+    .mobile-input-send-dim {
+        background-color: #feb71a;
+        border-radius: 100%;
+    }
+}
+
+@media screen and (max-width: 679px) {
+    .initial-box-1 {
+        width: 328px;
+        height: 200px;
+        padding: 16px;
+    }
+
+    .initial-col-1, .initial-col-3 {
+        height: 34.375vh;
+    }
+
+    .initial-col-2 {
+        height: 31.25vh;
+    }
+
+    .initial-box-1 input {
+        width: 296px;
+        height: 24px;
+    }
+
+    .under-line {
+        width: 296px;
+        height: 1px;
+    }
+
+    .seminar-title {
+        height: 24px;
+        font-size: 16px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .question-ranking-text {
+        font-size: 20px;
+        line-height: 1.45;
+    }
+
+    .initial-box-1 input {
+        font-size: 16px;
+    }
+
+    .room-create-button div {
+        height: 24px;
+        font-size: 16px;
+        margin-top: 8px;
+    }
+}
+
+@media screen and (max-width: 328px) {
+    .initial-box-1 {
+        width: 100%;
+    }
+
+    .initial-box-1 input {
+        width: 100%;
+    }
+
+    .under-line {
+        width: 100%;
+    }
 }
