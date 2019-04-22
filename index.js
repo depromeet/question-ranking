@@ -45,18 +45,7 @@ const dim = function beforeKeyPressCreateRoomButtonIsDim() {
         } else {
             $createRoomButton.addClass('room-button-active');
             $createRoomButton.prop('disabled', false);
-            sendSeminarName();
         }
-    });
-}
-
-// 등록한 이름 서버로 전달 (HTTP POST request)
-function sendSeminarName() {
-    const $createRoom = $('.create-room');
-
-    $createRoom.click(function(){
-
-        location.replace("./main.html")
     });
 }
 
