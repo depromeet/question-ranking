@@ -376,16 +376,23 @@ span div {
     background-color: #ffffff;
 }
 
-/* 세번째 열: 색깔 변경 버튼 */
+/* 세번째 열: 색깔 변경 변경 */
 .column-3 {
     flex-basis: 28%;
 }
+
 .color-buttons {
     width: 64px;
     height: 28px;
     margin: 0 2rem;
 }
 
+.dark-version {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #363a43;
+}
+
+/* 모바일 */
 .mobile-more-button {
     display: none;
 }
@@ -400,11 +407,6 @@ span div {
 
 .mobile-circle-button-2 {
     display: none;
-}
-
-.dark-version {
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #363a43;
 }
 
 .more-rank-1, .more-rank-2, .more-rank-3, .fold-rank-1, .fold-rank-2, .fold-rank-3 {
@@ -449,26 +451,18 @@ span div {
 
     .container {
         flex-direction: column;
+        margin: 1.6rem;
+    }
+
+    /* 첫번째 열: 세미나 방 정보 박스 스타일 */
+    .column-1 {
+        height: 288px;
     }
 
     .box-5 {
         width: 100%;
         height: 256px;
         margin: 0;
-    }
-
-    .column-1 {
-        height: 288px;
-        margin-top: 24px;
-    }
-
-    .column-2 {
-        padding: 16px;
-        padding-top: 0;
-    }
-
-    .column-3 {
-        display: none;
     }
 
     .Question-ranking {
@@ -479,11 +473,6 @@ span div {
     .question-contents {
         height: 100vh;
         padding-bottom: 92px;
-    }
-
-     .column-1 {
-        display: block;
-        padding: 16px;
     }
 
     .mobile-box-5-title-1 {
