@@ -1,4 +1,4 @@
-// UI interactions
+// UI 인터랙션
 const main = function changeRankingHeight(foldedHeight) {
     const $questionRanking = $('.Question-ranking');
     const $questionRankingMore = $('.Question-ranking-more');
@@ -161,6 +161,7 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
 
 //
 const newElement = function createNewElement() {
+    const commentText = 'there needs to be an input';
     const $textarea = $('textarea');
     const $ul = $('ul');
     const $inputSend = $('.input-send');
@@ -172,7 +173,7 @@ const newElement = function createNewElement() {
             console.log('질문을 입력하세요.');
         } else {
             $ul.append('<div><ol></ol><span></span></div>');
-            $('ol:last').append($textarea.val());
+            $('ol:last').append(commentText);
             $('span:last').append('<img src="./images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
             $('span:last > img').addClass('white-star');
             $('span:last > div').addClass($('body').attr('class'));
@@ -189,7 +190,7 @@ const newElement = function createNewElement() {
             console.log('질문을 입력하세요.');
         } else {
             $ul.append('<div><ol></ol><span></span></div>');
-            $('ol:last').append($textarea.val());
+            $('ol:last').append(commentText);
             $('span:last').append('<img src="./images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
             $('span:last > div').addClass($('body').attr('class'));
 

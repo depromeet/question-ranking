@@ -1,4 +1,4 @@
-// UI 인터랙션
+// UI interaction
 const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     const $yellowButton = $('.yellow-button');
     const $darkButton = $('.dark-button');
