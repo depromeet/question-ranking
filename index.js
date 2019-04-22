@@ -5,7 +5,7 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     const $body = $('body');
     const $questionRankingText = $('.question-ranking-text');
     
-    const $initialBody = $('#initial-body');
+    const $initialBody = $('.container');
 
     $yellowButton.click(function() {
         $body.removeClass('dark-version');
