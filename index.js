@@ -1,3 +1,4 @@
+// UI 인터랙션
 const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     const $yellowButton = $('.yellow-button');
     const $darkButton = $('.dark-button');
@@ -35,23 +36,26 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
 }
 
 const dim = function beforeKeyPressCreateRoomButtonIsDim() {
-    const $createRoom = $('.create-room');
+    const $createRoomButton = $('.create-room-button');
     const $input = $('input');
 
     $input.keyup(function(){
         if ($input.val() === '') {
-            $createRoom.removeClass('create-room-dim');
+            $createRoomButton.removeClass('room-button-active');
         } else {
-            $createRoom.addClass('create-room-dim');
-            pageMovement();
+            $createRoomButton.addClass('room-button-active');
+            $createRoomButton.prop('disabled', false);
+            sendSeminarName();
         }
     });
 }
 
-function pageMovement() {
+// 등록한 이름 서버로 전달 (HTTP POST request)
+function sendSeminarName() {
     const $createRoom = $('.create-room');
 
     $createRoom.click(function(){
+
         location.replace("./main.html")
     });
 }

@@ -20,14 +20,19 @@
                 </div>
             </div>
             <div class="initial-col-2">
+
+                <!-- 새 세미나 방 등록 -->
                 <div class="initial-box-1">
                     <div class="seminar-title">세미나 이름</div>
-                    <input type="text" placeholder="세미나 이름을 입력해 주세요">
-                    <div class="under-line"></div>
-                    <div class="room-create-button">
-                        <div class="create-room">만들기</div>
-                    </div>
+                    <form method="POST" action="/api/seminar/create">
+                        <input name="seminarTitle" type="text" placeholder="세미나 이름을 입력해 주세요">
+                        <div class="under-line"></div>
+                        <div class="box-row">
+                            <button type="submit" disabled class="create-room-button">만들기</button>
+                        </div>
+                    </form>
                 </div>
+                
             </div>
             <div class="initial-col-3">
 
