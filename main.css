@@ -17,8 +17,9 @@ body {
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1024px 1fr;
+    grid-gap: 2rem;
     margin: 4rem 2rem 0 2rem;
 }
 
@@ -31,9 +32,8 @@ body {
     width: fit-content;
 }
 
-/* 첫번째 열: 세미나 방 정보 표시*/
+/* 첫번째 열: 세미나 방 정보 박스 */
 .column-1 {
-    flex-basis: 28%;
     display: flex;
     flex-direction: row-reverse;
 }
@@ -44,7 +44,6 @@ body {
     border-radius: 5px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.18);
     background-color: #ffffff;
-    margin-right: 20px;
     padding: 16px;
 }
 
@@ -118,9 +117,6 @@ body {
 }
 
 /* 두번째 열: 질문 랭킹 및 질문 코멘트 로그*/
-.column-2 {
-    flex-basis: 64%;
-}
 
 .Question-ranking {
     height: 60px;
@@ -171,16 +167,16 @@ body {
     flex-direction: column-reverse;
 }
 
-/* 질문 코멘트 로그 스타일 */
+/* 질문 코멘트 로그 */
 .question-contents {
     width: 100%;
-    /* height: 848px; */
+    height: 848px;
     display: flex;
     flex-direction: column-reverse;
     overflow: scroll;
 }
 
-/* 새 질문 등록 스타일 */
+/* 새 질문 등록 */
 .question-input {
     height: 92px;
     display: flex;
@@ -190,7 +186,7 @@ body {
 }
 
 textarea {
-    width: 884px;
+    width: 100%;
     height: 92px;
     border-radius: 5px;
     background-color: #ffffff;
@@ -378,13 +374,13 @@ span div {
 
 /* 세번째 열: 색깔 변경 변경 */
 .column-3 {
-    flex-basis: 28%;
+    display: flex;
+    flex-direction: row-reverse;
 }
-
 .color-buttons {
     width: 64px;
     height: 28px;
-    margin: 0 2rem;
+    margin-right: 0;
 }
 
 .dark-version {
@@ -450,6 +446,7 @@ span div {
     }
 
     .container {
+        display: flex;
         flex-direction: column;
         margin: 1.6rem;
     }
