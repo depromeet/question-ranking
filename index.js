@@ -1,44 +1,62 @@
-function foldOrStretchRanking() {
-    $( ".Question-ranking-more" ).hide();
-    $( ".fold-button" ).hide();
+const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
+    const $yellowButton = $('.yellow-button');
+    const $darkButton = $('.dark-button');
+    const $body = $('body');
+    const $questionRankingText = $('.question-ranking-text');
     
-    $( ".pass-down-button" ).click(function(){
-        $( ".Question-ranking" ).hide();
-        $( ".Question-ranking-more" ).show();
-        $( ".fold-button" ).show();
-        $( ".question-contents" ).css( "height", "702px" );
-    });
-    
-    $( ".pass-up-button" ).click(function(){
-        $( ".Question-ranking" ).show();
-        $( ".Question-ranking-more" ).hide();
-        $( ".fold-button" ).hide();
-        $( ".question-contents" ).css( "height", "848px" );
-    });
+    const $initialBody = $('#initial-body');
 
-    $( ".mobile-circle-button" ).click(function(){
-        $( ".Question-ranking" ).hide();
-        $( ".Question-ranking-more" ).show();
-        $( ".question-contents" ).css( "height", "276px" );
+    $yellowButton.click(function() {
+        $body.removeClass('dark-version');
+        $body.css({
+            'background-color': '#f1f1f1'
+        });
+        $initialBody.css({
+            'background-color': '#feb519'
+        })
+        $questionRankingText.css({
+            'color': 'rgba(0, 0, 0, 0.87)'
+        });
     });
-
-    $( ".mobile-circle-button-2" ).click(function(){
-        $( ".Question-ranking" ).show();
-        $( ".Question-ranking-more" ).hide();
-        $( ".question-contents" ).css( "height", "422px" );
+    $darkButton.click(function() {
+        $body.addClass('dark-version');
+        $body.css({
+            'background-color': '#363a43'
+        });
+        
+        $initialBody.css({
+            'background-color': '#363a43'
+        })
+        $questionRankingText.css({
+            'color': 'rgba(255, 255, 255, 0.87)'
+        });
+        $('span > div').addClass('dark-version');
     });
 }
 
-function showQRcode() {
-    $( ".box-5-title-3" ).click(function(){
-        $( ".modal" ).show();
+const dim = function beforeKeyPressCreateRoomButtonIsDim() {
+    const $createRoom = $('.create-room');
+    const $input = $('input');
+
+    $input.keyup(function(){
+        if ($input.val() === '') {
+            $createRoom.removeClass('create-room-dim');
+        } else {
+            $createRoom.addClass('create-room-dim');
+            pageMovement();
+        }
     });
-    $( ".modal" ).click(function(){
-        $( ".modal" ).hide();
+}
+
+function pageMovement() {
+    const $createRoom = $('.create-room');
+
+    $createRoom.click(function(){
+        location.replace("./main.html")
     });
 }
 
 $(function () {
-    foldOrStretchRanking();
-    showQRcode();
+    backgroundColor();
+    dim();
 });
