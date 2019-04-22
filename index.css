@@ -132,8 +132,6 @@ body {
 }
 
 /* 모바일 반응형 설정 */
-
-
 @media screen and (max-width: 679px) {
     .initial-box-1 {
         width: 328px;
