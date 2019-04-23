@@ -9,7 +9,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
         <!-- Custom Stylesheet & Script -->
-        <link rel='stylesheet' type='text/css' href='<%=request.getContextPath() %>/js/main.js' />
+        <link rel='stylesheet' type='text/css' href='<%=request.getContextPath() %>/css/main.css' />
         <script src='<%=request.getContextPath() %>/js/main.js' ></script> 
     </head>
     <body>
