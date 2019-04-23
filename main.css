@@ -18,9 +18,14 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1024px 1fr;
+    grid-template-columns: auto 100% auto;
     grid-gap: 2rem;
     margin: 4rem 2rem 0 2rem;
+}
+@media screen and (min-width: 1348px) {
+    .container {
+        grid-template-columns: auto 1024px auto;
+    }
 }
 
 .text-more {
@@ -124,6 +129,7 @@ body {
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
     display: flex;
+    position: relative;
 }
 
 .circle-button {
@@ -146,8 +152,8 @@ body {
 }
 
 .more-button {
-    position: relative;
-    left: 759px;
+    position: absolute;
+    left: 92%;
     top: 33px;
     height: 48px;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.16);
