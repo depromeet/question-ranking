@@ -9,8 +9,8 @@
         <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
         <!-- Custom Stylesheet & Script -->
-        <link rel='stylesheet' type='text/css' href='${pageContext.request.contextPath}/main.css' />
-        <script src="${pageContext.request.contextPath}/main.js"></script>
+        <link rel='stylesheet' type='text/css' href='<%=request.getContextPath() %>/js/main.js' />
+        <script src='<%=request.getContextPath() %>/js/main.js' ></script> 
     </head>
     <body>
         <div class="container">
@@ -21,8 +21,8 @@
                     <div class="mobile-box-5-title-1">
                         <div>Question Ranking</div>
                         <div>
-                            <img src="./images/change-background-color-to-yellow.png" class="yellow-button" alt="Change the background color to yellow">
-                            <img src="./images/change-background-color-to-dark.png" class="dark-button" alt="Change the background color to dark">
+                            <img src="<%=request.getContextPath() %>/images/change-background-color-to-yellow.png" class="yellow-button" alt="Change the background color to yellow">
+                            <img src="<%=request.getContextPath() %>/images/change-background-color-to-dark.png" class="dark-button" alt="Change the background color to dark">
                         </div>
                     </div>
                     <!-- 세미나 metadata 표시 (이름 & 인원 수)-->
@@ -39,8 +39,8 @@
                         </div>
                         <div class="box-5-col-1-contents-2">
                             <div class="url-address">${shortURL}</div>
-                            <img src="./images/url_copy_button.png" class="url-copy-button" alt="Copy button of URL">
-                            <img src="./images/Copy_interaction_2.gif" class="url-copy-animation" alt="url copy animation">
+                            <img src="<%=request.getContextPath() %>/images/url_copy_button.png" class="url-copy-button" alt="Copy button of URL">
+                            <img src="<%=request.getContextPath() %>/images/Copy_interaction_2.gif" class="url-copy-animation" alt="url copy animation">
                         </div>
                     </div>
                     <!-- QR 코드 표시 -->
@@ -48,10 +48,10 @@
                         <div class="show-qr-code-button">
                             <div class="show-qr-code">QR코드 보기</div>
                             <div class="mobile-show-qr-code">QR코드 보기</div>
-                            <img src="./images/qr-code-fold-button.png" class="qr-code-fold-button" alt="qr-code-fold-button">
-                            <img src="./images/qr-code-more-button.png" class="qr-code-more-button" alt="qr-code-more-button">
+                            <img src="<%=request.getContextPath() %>/images/qr-code-fold-button.png" class="qr-code-fold-button" alt="qr-code-fold-button">
+                            <img src="<%=request.getContextPath() %>/images/qr-code-more-button.png" class="qr-code-more-button" alt="qr-code-more-button">
                         </div>
-                        <img src="./images/qr_code.png" class="box-qr-code" alt="QR code">
+                        <img src="<%=request.getContextPath() %>/images/qr_code.png" class="box-qr-code" alt="QR code">
                     </div>
                 </div>
             </div>
@@ -63,17 +63,17 @@
                 <div class="Question-ranking">
                     <div class="Question-ranking-row-1">Question Ranking</div>
                     <div class="more-button">
-                        <img src="./images/test.png" class="circle-button" alt="Question ranking fold and more button">
+                        <img src="<%=request.getContextPath() %>/images/test.png" class="circle-button" alt="Question ranking fold and more button">
                     </div>
                     <div class="mobile-more-button">
-                        <img src="./images/test.png" class="mobile-circle-button" alt="Question ranking fold and more button">
+                        <img src="<%=request.getContextPath() %>/images/test.png" class="mobile-circle-button" alt="Question ranking fold and more button">
                     </div>
                 </div>
                 <!-- 질문 랭킹 집계 (펴짐) -->
                 <div class="Question-ranking-more">
                     <div class="top-1">
                         <div class="star-and-number">
-                            <img src="./images/three_star.png" alt="Star symbol">
+                            <img src="<%=request.getContextPath() %>/images/three_star.png" alt="Star symbol">
                             <div>27</div>
                         </div>
                         <div class="ranking-text-rank-1 text-more">이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요?</div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="top-2">
                         <div class="star-and-number">
-                            <img src="./images/two_star.png" alt="Star symbol">
+                            <img src="<%=request.getContextPath() %>/images/two_star.png" alt="Star symbol">
                             <div>20</div>
                         </div>
                         <div class="ranking-text-rank-2 text-more">이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요?</div>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="top-3">
                         <div class="star-and-number">
-                            <img src="./images/one_star.png" alt="Star symbol">
+                            <img src="<%=request.getContextPath() %>/images/one_star.png" alt="Star symbol">
                             <div>10</div>
                         </div>
                         <div class="ranking-text-rank-3 text-more">이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요?이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요?이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요? 이런건 어떤건가요?</div>
@@ -99,10 +99,10 @@
                         <span class="fold-rank-3">Fold</span>
                     </div>
                     <div class="fold-button">
-                        <img src="./images/question-ranking-fold.png" class="circle-button-2" alt="Question ranking fold and more button">
+                        <img src="<%=request.getContextPath() %>/images/question-ranking-fold.png" class="circle-button-2" alt="Question ranking fold and more button">
                     </div>
                     <div class="mobile-fold-button">
-                        <img src="./images/question-ranking-fold.png" class="mobile-circle-button-2" alt="Question ranking fold and more button">
+                        <img src="<%=request.getContextPath() %>/images/question-ranking-fold.png" class="mobile-circle-button-2" alt="Question ranking fold and more button">
                     </div>
                 </div>
 
@@ -111,9 +111,9 @@
 
                     <!-- 질문 로그 초기 메세지 -->
                     <div class="before-question-contents">
-                        <img src="./images/one_star.png" alt="Star symbol">
+                        <img src="<%=request.getContextPath() %>/images/one_star.png" alt="Star symbol">
                         <div class="please-input-questions">질문을 입력해 주세요!</div>
-                        <img src="./images/one_star.png" alt="Star symbol">
+                        <img src="<%=request.getContextPath() %>/images/one_star.png" alt="Star symbol">
                     </div>
 
                     <!-- 질문 코멘트 로그 -->
@@ -125,7 +125,7 @@
                 <div class="question-input">
                     <textarea type="text" placeholder="질문을 입력해주세요."></textarea>
                     <div class="input-send input-send-dim">Send</div>
-                    <img class="mobile-input-send" src="./images/mobile-send-button.png" alt="Send button">
+                    <img class="mobile-input-send" src="<%=request.getContextPath() %>/images/mobile-send-button.png" alt="Send button">
                 </div>
                 <div id="blank"></div>
             </div>
@@ -133,15 +133,15 @@
             <!-- 페이지 색깔 변경 버튼 -->
             <div class="column-3">
                 <div class="color-buttons">
-                    <img src="./images/change-background-color-to-yellow.png" class="yellow-button" alt="Change the background color to yellow">
-                    <img src="./images/change-background-color-to-dark.png" class="dark-button" alt="Change the background color to dark">
+                    <img src="<%=request.getContextPath() %>/images/change-background-color-to-yellow.png" class="yellow-button" alt="Change the background color to yellow">
+                    <img src="<%=request.getContextPath() %>/images/change-background-color-to-dark.png" class="dark-button" alt="Change the background color to dark">
                 </div>
             </div>
 
             <!-- QR 코드 모덜 -->
             <div class="modal">
                 <div class="modal-content">
-                    <img src="./images/qr_code.png" alt="QR code">
+                    <img src="<%=request.getContextPath() %>/images/qr_code.png" alt="QR code">
                 </div>
             </div>
         </div>
