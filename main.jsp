@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <html>
     <head>
         <title></title>
@@ -7,8 +9,8 @@
         <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
         <!-- Custom Stylesheet & Script -->
-        <link rel='stylesheet' type='text/css' href='main.css' />
-        <script src="main.js"></script>
+        <link rel='stylesheet' type='text/css' href='${pageContext.request.contextPath}/main.css' />
+        <script src="${pageContext.request.contextPath}/main.js"></script>
     </head>
     <body>
         <div class="container">
