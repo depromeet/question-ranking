@@ -1,14 +1,16 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <html>
     <head>
         <title></title>
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-        <link rel='stylesheet' type='text/css' href='main.css' />
         <script src="http://code.jquery.com/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
-        <script src="main.js"></script>
+        <!-- Custom Stylesheet & Script -->
+        <link rel='stylesheet' type='text/css' href='${pageContext.request.contextPath}/main.css' />
+        <script src="${pageContext.request.contextPath}/main.js"></script>
     </head>
     <body>
         <div class="container">
@@ -27,7 +29,7 @@
                     <div class="box-5-col-1">
                         <div class="box-5-title-1">세미나 이름</div>
                         <div class="box-5-col-1-contents-1">
-                            <div>디프만6기 세미나</div>
+                            <div>${seminarTitle}</div>
                             <div>(83명)</div>
                         </div>
                     </div>
@@ -36,7 +38,7 @@
                         <div class="box-5-title-2">URL
                         </div>
                         <div class="box-5-col-1-contents-2">
-                            <div class="url-address">www.bit.ly/xxxxxx</div>
+                            <div class="url-address">${shortURL}</div>
                             <img src="./images/url_copy_button.png" class="url-copy-button" alt="Copy button of URL">
                             <img src="./images/Copy_interaction_2.gif" class="url-copy-animation" alt="url copy animation">
                         </div>
