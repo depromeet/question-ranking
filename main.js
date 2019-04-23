@@ -1,4 +1,4 @@
-// UI 인터랙션
+// 
 const main = function changeRankingHeight(foldedHeight) {
     const $questionRanking = $('.Question-ranking');
     const $questionRankingMore = $('.Question-ranking-more');
@@ -159,7 +159,7 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     });
 }
 
-//
+// 새 질문 업데이트
 const newElement = function createNewElement() {
     const commentText = 'there needs to be an input';
     const $textarea = $('textarea');
@@ -202,7 +202,7 @@ const newElement = function createNewElement() {
     });
 }
 
-//
+// 
 const questionRanking = function questionRankingTopThreeTextMoreOrFold() {
 
     const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -350,9 +350,11 @@ const dim = function beforeKeyPressInputSendButtonIsDim() {
     });
 }
 
-// When DOM render ready,
+// DOM 렌데링이 완료되면, 실행
 $(function () {
-    // Implement UI interactions
+    // 세미나 기본 정보 불러오기
+
+    // UI 인터랙션
     const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     const currentWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     
@@ -373,21 +375,20 @@ $(function () {
     mobile(mobileFoldedHeight, mobileStrechedHeight);
     showQRcode();
     backgroundColor();
-    newElement();
     questionRanking();
     copyURL();
     changeStarColor();
     dim();
 
+    newElement();
     // connection
     connectWebSockets();
     sendNewQuestion();
 });
 
-// http request-response handling (index.js로 옮기기)
-
-// update seminar information (Ajax)
+// 세미나 기본 정보 불러오기 (Ajax)
 var seminarID = null;
+
 
 // request QR code (Ajax)
 // <img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="" title="" />
