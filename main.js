@@ -160,8 +160,8 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
 }
 
 // 새 질문 업데이트
-const newElement = function createNewElement() {
-    const commentText = 'there needs to be an input';
+const postNewQuestion = function createNewElement(content) {
+    const commentText = content;
     const $textarea = $('textarea');
     const $ul = $('ul');
     const $inputSend = $('.input-send');
@@ -380,47 +380,39 @@ $(function () {
     changeStarColor();
     dim();
 
-    newElement();
-    // connection
+    // 웹소켓 연결
     connectWebSockets();
     sendNewQuestion();
 });
-
-// 세미나 기본 정보 불러오기 (Ajax)
-var seminarID = null;
-
 
 // request QR code (Ajax)
 // <img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="" title="" />
 // 위에 형식 사용하기 (embed in html and update image src by js)
 
-// Web Socket configuration
+
+// 웹 소켓 기본 설정
 var stompClient = null;
+var seminarId = window.location.pathname;
+
 const connectWebSockets = () => {
     var socket = new SockJS('/q-rank-websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, (frame) => {
         setConnected(true);
         console.log('Connected: ' + frame);
-        // 원래 path: `/seminar/${seminarID}`
-        stompClient.subscribe(`/seminar/112`, (res) => {
-            // parse JSON response
+        stompClient.subscribe(`/seminar/${seminarId}`, (res) => {
+            // JSON response 파싱
             // const type = JSON.parse(res.body).type;
-            console.log(res);
 
-            // update messages
+            // 새 질문 업데이트
             // if (data.type == "comment") {
-                const ul = document.querySelector(".question-lists");
-                const ol = document.createElement("ol");
-                ol.textContent = res;
-                ul.appendChild(ol);
             //}
-
+            postNewQuestion(res);
             
-            // update message likes
+            // 좋아요 숫자 업데이트
             // if (data.type == "likes") {}
 
-            // update rankings
+            // 랭킹순위 업데이트
             // if (data.type == "ranking") {}
         });
     });
@@ -430,7 +422,6 @@ const connectWebSockets = () => {
 // Send message via web sockets
 function sendNewQuestion() {
     $( ".send-question" ).click(function(){
-        const seminarId = 112;
         const content = document.querySelector(".new-question").value;
         const message = JSON.stringify({'seminarId': seminarId, 'content': content});
         console.log("JSON: ", message);
