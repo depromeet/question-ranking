@@ -29,7 +29,7 @@
                     <div class="box-5-col-1">
                         <div class="box-5-title-1">세미나 이름</div>
                         <div class="box-5-col-1-contents-1">
-                            <div>${seminarTitle}</div>
+                            <div>${SeminarRoomDto.seminarTitle}</div>
                             <div>(83명)</div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         <div class="box-5-title-2">URL
                         </div>
                         <div class="box-5-col-1-contents-2">
-                            <div class="url-address">${shortURL}</div>
+                            <div class="url-address">${SeminarRoomDto.shortURL}</div>
                             <img src="<%=request.getContextPath() %>/images/url_copy_button.png" class="url-copy-button" alt="Copy button of URL">
                             <img src="<%=request.getContextPath() %>/images/Copy_interaction_2.gif" class="url-copy-animation" alt="url copy animation">
                         </div>
