@@ -12,7 +12,7 @@
         <link rel='stylesheet' type='text/css' href='<%=request.getContextPath() %>/css/main.css' />
         <script src='<%=request.getContextPath() %>/js/main.js' ></script> 
     </head>
-    <body>
+    <body class="">
         <div class="container">
             
             <!-- 세미나 방 정보 표시 -->
