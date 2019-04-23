@@ -19,7 +19,7 @@
             <div class="column-1">
                 <div class="box-5">
                     <div class="mobile-box-5-title-1">
-                        <div>Question Ranking</div>
+                        <div>Our Question</div>
                         <div>
                             <img src="<%=request.getContextPath() %>/images/change-background-color-to-yellow.png" class="yellow-button" alt="Change the background color to yellow">
                             <img src="<%=request.getContextPath() %>/images/change-background-color-to-dark.png" class="dark-button" alt="Change the background color to dark">
