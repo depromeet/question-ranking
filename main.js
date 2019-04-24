@@ -333,6 +333,7 @@ $(function () {
 
     if ( currentWidth <= 425 ) {
         $('.question-contents').css( "height", mobileFoldedHeight );
+        $('.box-5-col-1-contents-2').css( "height", '24px' );
     } else {
         $('.question-contents').css( "height", mainFoldedHeight );
     }
