@@ -45,7 +45,7 @@ body {
 
 .box-5 {
     width: 200px;
-    height: 208px;
+    height: fit-content;
     border-radius: 5px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.18);
     background-color: #ffffff;
@@ -101,14 +101,15 @@ body {
     justify-content: space-between;
     margin-top: 8px;
     margin-bottom: 8px;
+    word-break: break-all;
 }
 
 .box-5-col-1 {
-    height: 66px;
+    height: fit-content;
 }
 
 .box-5-col-2 {
-    height: 76px;
+    height: fit-content;
     border-top: 2px solid rgba(112, 112, 112, 0.16);
     border-bottom: 2px solid rgba(112, 112, 112, 0.16);
 }
@@ -119,6 +120,10 @@ body {
 
 .box-5-col-1-contents-2 {
     margin-top: 6px;
+}
+
+.number-of-people {
+    text-align: right;
 }
 
 /* 두번째 열: 질문 랭킹 및 질문 코멘트 로그*/
