@@ -354,7 +354,7 @@ let paths = window.location.pathname.split("/");
 let seminarId = paths[paths.length - 1];
 
 const connectWebSockets = () => {
-    let socket = new SockJS('/mini-QR/q-rank-websock');
+    let socket = new SockJS('/mini_QR/q-rank-websock');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, (frame) => {
         console.log('소켓 연결되었습니다!');
