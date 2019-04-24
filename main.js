@@ -395,10 +395,9 @@ var stompClient = null;
 var seminarId = window.location.pathname;
 
 const connectWebSockets = () => {
-    var socket = new SockJS('/q-rank-websocket');
+    var socket = new SockJS('/mini-QR/q-rank-websock');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, (frame) => {
-        setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe(`/seminar/${seminarId}`, (res) => {
             // JSON response 파싱
@@ -419,7 +418,7 @@ const connectWebSockets = () => {
 }
 
 
-// Send message via web sockets
+// 웹소켓으로 새 질문 (JSON) 서버로 전달
 function sendNewQuestion() {
     $( ".send-question" ).click(function(){
         const content = document.querySelector(".new-question").value;
