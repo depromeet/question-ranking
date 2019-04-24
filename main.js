@@ -62,13 +62,14 @@ const mobile = function mobileChangeRankingHeight(foldedHeight, strechedHeight) 
 
 const showQRcode = function showOrHideQuickResponsiveCode() {
     const $modal = $('.modal');
+    const $currentSeminarBoxHeight = $('.box-5').css('height').replace('px', '');;
 
     $('.box-qr-code').hide();
     $('.qr-code-fold-button').hide();
 
     $('.qr-code-more-button').click(function() {
         $('.box-5').css({
-            'height': '384px'
+            'height': parseInt($currentSeminarBoxHeight)+176+"px"
         })
         $('.box-qr-code').show();
         $('.qr-code-fold-button').show();
@@ -77,7 +78,7 @@ const showQRcode = function showOrHideQuickResponsiveCode() {
 
     $('.qr-code-fold-button').click(function() {
         $('.box-5').css({
-            'height': '208px'
+            'height': $currentSeminarBoxHeight+"px"
         })
         $('.box-qr-code').hide();
         $('.qr-code-fold-button').hide();
@@ -247,6 +248,15 @@ const questionRanking = function questionRankingTopThreeTextMoreOrFold() {
 }
 
 const copyURL = function pressCopyButtonThenCopyClipboard() {
+    const $urlAdress = $('.url-address');
+    const $urlContents = $('.box-5-col-1-contents-2');
+    
+    if ($urlAdress.text().length < 21) {
+        $urlContents.css({
+            'height': '24px'
+        });
+    };
+
     $('.box-5-col-1-contents-2 > img').click(function() {
         var $temp = $("<input>");
         $("body").append($temp);
@@ -327,7 +337,7 @@ $(function () {
         $('.question-contents').css( "height", mainFoldedHeight );
     }
     
-    main(mainFoldedHeight, mainStrechedHeight);
+    main(mainFoldedHeight);
     mobile(mobileFoldedHeight, mobileStrechedHeight);
     showQRcode();
     backgroundColor();
