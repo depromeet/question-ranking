@@ -10,7 +10,7 @@ const main = function changeRankingHeight(foldedHeight) {
     $foldButton.hide();
 
     if ($('.ranking-text-rank-1').text() === '') {
-        $('.circle-button').attr('src', './images/more-button-dim.png');
+        $('.circle-button').attr('src', '<%=request.getContextPath() %>/images/more-button-dim.png');
     } else {
         $moreButton.click(function(){
             $questionRanking.hide();
@@ -40,7 +40,7 @@ const mobile = function mobileChangeRankingHeight(foldedHeight, strechedHeight) 
     const $secondCircleButton = $('.mobile-circle-button-2')
 
     if ($('.ranking-text-rank-1').text() === '') {
-        $('.mobile-circle-button').attr('src', './images/more-button-dim.png');
+        $('.mobile-circle-button').attr('src', '<%=request.getContextPath() %>/images/more-button-dim.png');
     } else {
         $circleButton.click(function() {
             $questionRanking.hide();
@@ -159,49 +159,6 @@ const backgroundColor = function ChangeBackgroundColorYellowOrDark() {
     });
 }
 
-// 새 질문 업데이트
-const postNewQuestion = function createNewElement(content) {
-    const commentText = content;
-    const $textarea = $('textarea');
-    const $ul = $('ul');
-    const $inputSend = $('.input-send');
-    const $mobileInputSend = $('.mobile-input-send');
-    const $beforeQuestionInput = $('.before-question-contents')
-
-    $inputSend.click(function() {
-        if ($inputSend.hasClass('input-send-dim')) {
-            console.log('질문을 입력하세요.');
-        } else {
-            $ul.append('<div><ol></ol><span></span></div>');
-            $('ol:last').append(commentText);
-            $('span:last').append('<img src="./images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
-            $('span:last > img').addClass('white-star');
-            $('span:last > div').addClass($('body').attr('class'));
-
-            $textarea.val('')
-            $inputSend.addClass('input-send-dim');
-            $beforeQuestionInput.hide();
-            changeStarColor();
-        }
-    });
-
-    $mobileInputSend.click(function() {
-        if (!$mobileInputSend.hasClass('mobile-input-send-dim')) {
-            console.log('질문을 입력하세요.');
-        } else {
-            $ul.append('<div><ol></ol><span></span></div>');
-            $('ol:last').append(commentText);
-            $('span:last').append('<img src="./images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
-            $('span:last > div').addClass($('body').attr('class'));
-
-            $textarea.val('');
-            $mobileInputSend.removeClass('mobile-input-send-dim');
-            $beforeQuestionInput.hide();
-            changeStarColor();
-        }
-    });
-}
-
 // 
 const questionRanking = function questionRankingTopThreeTextMoreOrFold() {
 
@@ -313,15 +270,15 @@ const changeStarColor = function pressLikedButtonSoThatTransformToYellowStar() {
         const $this = $(this);
 
         if ($this.hasClass('yellow-star')) {
-            $this.attr('src', './images/Star_interaction_' + Math.floor(Math.random() * 6) + '.gif');
+            $this.attr('src', '<%=request.getContextPath() %>/images/Star_interaction_' + Math.floor(Math.random() * 6) + '.gif');
             setTimeout(function() {
-                $this.attr('src', './images/one_star.png');
+                $this.attr('src', '<%=request.getContextPath() %>/images/one_star.png');
             }, 2800);
             $this.toggleClass('yellow-star');
             counterLikedNumber++;
             $this.next().text(counterLikedNumber);
         } else {
-            $this.attr('src', './images/white-star.png');
+            $this.attr('src', '<%=request.getContextPath() %>/images/white-star.png');
             $this.toggleClass('yellow-star');
             counterLikedNumber--;
             $this.next().text(counterLikedNumber);
@@ -425,5 +382,48 @@ function sendNewQuestion() {
         const message = JSON.stringify({'seminarId': seminarId, 'content': content});
         console.log("JSON: ", message);
         stompClient.send("/updates", {}, message);
+    });
+}
+
+// 새 질문 업데이트
+const postNewQuestion = function createNewElement(content) {
+    const commentText = content;
+    const $textarea = $('textarea');
+    const $ul = $('ul');
+    const $inputSend = $('.input-send');
+    const $mobileInputSend = $('.mobile-input-send');
+    const $beforeQuestionInput = $('.before-question-contents')
+
+    $inputSend.click(function() {
+        if ($inputSend.hasClass('input-send-dim')) {
+            console.log('질문을 입력하세요.');
+        } else {
+            $ul.append('<div><ol></ol><span></span></div>');
+            $('ol:last').append(commentText);
+            $('span:last').append('<img src="<%=request.getContextPath() %>/images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
+            $('span:last > img').addClass('white-star');
+            $('span:last > div').addClass($('body').attr('class'));
+
+            $textarea.val('')
+            $inputSend.addClass('input-send-dim');
+            $beforeQuestionInput.hide();
+            changeStarColor();
+        }
+    });
+
+    $mobileInputSend.click(function() {
+        if (!$mobileInputSend.hasClass('mobile-input-send-dim')) {
+            console.log('질문을 입력하세요.');
+        } else {
+            $ul.append('<div><ol></ol><span></span></div>');
+            $('ol:last').append(commentText);
+            $('span:last').append('<img src="<%=request.getContextPath() %>/images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
+            $('span:last > div').addClass($('body').attr('class'));
+
+            $textarea.val('');
+            $mobileInputSend.removeClass('mobile-input-send-dim');
+            $beforeQuestionInput.hide();
+            changeStarColor();
+        }
     });
 }
