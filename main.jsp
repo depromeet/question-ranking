@@ -12,14 +12,14 @@
         <link rel='stylesheet' type='text/css' href='<%=request.getContextPath() %>/css/main.css' />
         <script src='<%=request.getContextPath() %>/js/main.js' ></script> 
     </head>
-    <body>
+    <body class="">
         <div class="container">
             
             <!-- 세미나 방 정보 표시 -->
             <div class="column-1">
                 <div class="box-5">
                     <div class="mobile-box-5-title-1">
-                        <div>Question Ranking</div>
+                        <div>Our Question</div>
                         <div>
                             <img src="<%=request.getContextPath() %>/images/change-background-color-to-yellow.png" class="yellow-button" alt="Change the background color to yellow">
                             <img src="<%=request.getContextPath() %>/images/change-background-color-to-dark.png" class="dark-button" alt="Change the background color to dark">
@@ -30,7 +30,7 @@
                         <div class="box-5-title-1">세미나 이름</div>
                         <div class="box-5-col-1-contents-1">
                             <div>${SeminarRoomDto.seminarTitle}</div>
-                            <div>(83명)</div>
+                            <div class="number-of-people">(83명)</div>
                         </div>
                     </div>
                     <!-- URL 정보 표시  -->
