@@ -346,6 +346,7 @@ const showOrFoldRankingText = () => {
             'height': mainStrechedHeight,
         });
     });
+}
 
 // QR 코드를 클릭할 시, 모달로 QR코드 띄우기
 const showQRcodeModal = () => {
@@ -373,10 +374,14 @@ const showQRcodeModal = () => {
         $('.qr-code-more-button').show();
     });
 
-    $('.box-qr-code').click(() => {
-        $modal.show();
-    });
-
+    $('.box-qr-code').click(() => {	
+        $modal.show();	
+    });	
+    $('.mobile-show-qr-code').click(() => {	
+        $modal.show();	
+    });	
+    $modal.click(() => {	
+        $modal.hide();	
     });
 };
 
