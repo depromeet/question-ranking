@@ -307,9 +307,8 @@ const dim = function beforeKeyPressInputSendButtonIsDim() {
     });
 }
 
-// DOM 렌데링이 완료되면, 실행
+// DOM 렌더링이 완료되면, 실행
 $(function () {
-    // 세미나 기본 정보 불러오기
 
     // UI 인터랙션
     const currentHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -339,7 +338,9 @@ $(function () {
 
     // 웹소켓 연결
     connectWebSockets();
-    sendNewQuestion();
+
+    // 새 질문 등록
+    updateNewQuestion();
 });
 
 // request QR code (Ajax)
@@ -348,14 +349,17 @@ $(function () {
 
 
 // 웹 소켓 기본 설정
-var stompClient = null;
-var seminarId = window.location.pathname;
+let stompClient = null;
+let paths = window.location.pathname.split("/");
+let seminarId = paths[paths.length - 1];
 
 const connectWebSockets = () => {
-    var socket = new SockJS('/mini-QR/q-rank-websock');
+    let socket = new SockJS('/mini-QR/q-rank-websock');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, (frame) => {
-        console.log('Connected: ' + frame);
+        console.log('소켓 연결되었습니다!');
+
+        // 서버로부터 STOMP 메세지를 전달받으면, 콘텐츠 업데이트
         stompClient.subscribe(`/seminar/${seminarId}`, (res) => {
             // JSON response 파싱
             // const type = JSON.parse(res.body).type;
@@ -372,58 +376,64 @@ const connectWebSockets = () => {
             // if (data.type == "ranking") {}
         });
     });
-}
+};
 
 
 // 웹소켓으로 새 질문 (JSON) 서버로 전달
-function sendNewQuestion() {
-    $( ".send-question" ).click(function(){
-        const content = document.querySelector(".new-question").value;
-        const message = JSON.stringify({'seminarId': seminarId, 'content': content});
-        console.log("JSON: ", message);
-        stompClient.send("/updates", {}, message);
+const updateNewQuestion = () => {
+    const $inputButton = $('.input-send');
+    const $mobileInputButton = $('.mobile-input-send');
+    const $newQuestionText = $('textarea');
+
+    // send 버튼을 누르면, 서버에게 새 질문 전달
+    $inputButton.click(function() {
+        if ($inputButton.hasClass('input-send-dim')) {
+            console.log('질문을 입력하세요.');
+        } else {
+            sendNewQuestion($newQuestionText);
+        }
     });
-}
+    $mobileInputButton.click(function() {
+        if ($mobileInputButton.hasClass('mobile-input-send-dim')) {
+            console.log('질문을 입력하세요.');
+        } else {
+            sendNewQuestion($newQuestionText);
+        }
+    });
+        
+};
+
+// 웹소켓을 통해 새 질문 전달
+const sendNewQuestion = () => {
+    const content = document.querySelector("textarea").value;
+    const message = JSON.stringify({'seminarId': seminarId, 'content': content});
+    console.log("데이터 전송합니다: ", message);
+    stompClient.send("/updates", {}, message);
+};
+
 
 // 새 질문 업데이트
-const postNewQuestion = function createNewElement(content) {
+const postNewQuestion = (content) => {
     const commentText = content;
     const $textarea = $('textarea');
     const $ul = $('ul');
-    const $inputSend = $('.input-send');
-    const $mobileInputSend = $('.mobile-input-send');
+    const $inputButton = $('.input-send');
+    const $mobileInputButton = $('.mobile-input-send');
     const $beforeQuestionInput = $('.before-question-contents')
 
-    $inputSend.click(function() {
-        if ($inputSend.hasClass('input-send-dim')) {
-            console.log('질문을 입력하세요.');
-        } else {
-            $ul.append('<div><ol></ol><span></span></div>');
-            $('ol:last').append(commentText);
-            $('span:last').append('<img src="<%=request.getContextPath() %>/images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
-            $('span:last > img').addClass('white-star');
-            $('span:last > div').addClass($('body').attr('class'));
+    // 새 질문 올리기
+    $ul.append('<div><ol></ol><span></span></div>');
+    $('ol:last').append(commentText);
+    $('span:last').append('<img src="<%=request.getContextPath() %>/images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
+    $('span:last > img').addClass('white-star');
+    $('span:last > div').addClass($('body').attr('class'));
 
-            $textarea.val('')
-            $inputSend.addClass('input-send-dim');
-            $beforeQuestionInput.hide();
-            changeStarColor();
-        }
-    });
+    // 새 질문 입력 다시 디폴트 설정으로 변경
+    $textarea.val('')
+    $inputButton.addClass('input-send-dim');
+    $mobileInputButton.removeClass('mobile-input-send-dim');
+    $beforeQuestionInput.hide();
 
-    $mobileInputSend.click(function() {
-        if (!$mobileInputSend.hasClass('mobile-input-send-dim')) {
-            console.log('질문을 입력하세요.');
-        } else {
-            $ul.append('<div><ol></ol><span></span></div>');
-            $('ol:last').append(commentText);
-            $('span:last').append('<img src="<%=request.getContextPath() %>/images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
-            $('span:last > div').addClass($('body').attr('class'));
-
-            $textarea.val('');
-            $mobileInputSend.removeClass('mobile-input-send-dim');
-            $beforeQuestionInput.hide();
-            changeStarColor();
-        }
-    });
+    // 
+    changeStarColor();
 }
