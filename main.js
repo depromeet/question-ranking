@@ -120,6 +120,15 @@ const connectWebSockets = () => {
 
 // URL 복사 아이콘 클릭 시, URL을 클립보드에 복사
 const copyURL = () => {
+    const $urlAdress = $('.url-address');
+    const $urlContents = $('.box-5-col-1-contents-2');
+
+    if ($urlAdress.text().length < 21) {
+        $urlContents.css({
+            'height': '24px'
+        });
+    };
+  
     $('.box-5-col-1-contents-2 > img').click(() => {
         var $temp = $("<input>");
         $("body").append($temp);
@@ -337,18 +346,18 @@ const showOrFoldRankingText = () => {
             'height': mainStrechedHeight,
         });
     });
-};
 
 // QR 코드를 클릭할 시, 모달로 QR코드 띄우기
 const showQRcodeModal = () => {
     const $modal = $('.modal');
+    const $currentSeminarBoxHeight = $('.box-5').css('height').replace('px', '');
 
     $('.box-qr-code').hide();
     $('.qr-code-fold-button').hide();
 
     $('.qr-code-more-button').click(() => {
         $('.box-5').css({
-            'height': '384px'
+            'height': parseInt($currentSeminarBoxHeight)+176+"px"
         })
         $('.box-qr-code').show();
         $('.qr-code-fold-button').show();
@@ -357,7 +366,7 @@ const showQRcodeModal = () => {
 
     $('.qr-code-fold-button').click(() => {
         $('.box-5').css({
-            'height': '208px'
+            'height': $currentSeminarBoxHeight+"px"
         })
         $('.box-qr-code').hide();
         $('.qr-code-fold-button').hide();
@@ -367,11 +376,7 @@ const showQRcodeModal = () => {
     $('.box-qr-code').click(() => {
         $modal.show();
     });
-    $('.mobile-show-qr-code').click(() => {
-        $modal.show();
-    });
-    $modal.click(() => {
-        $modal.hide();
+
     });
 };
 
@@ -396,7 +401,6 @@ const updateNewQuestion = () => {
             sendNewQuestion($newQuestionText);
         }
     });
-        
 };
 
 
@@ -422,6 +426,7 @@ $(function () {
     // 
     if ( currentWidth <= 425 ) {
         $('.question-contents').css( "height", mobileFoldedHeight );
+        $('.box-5-col-1-contents-2').css( "height", '24px' );
     } else {
         $('.question-contents').css( "height", mainFoldedHeight );
     }

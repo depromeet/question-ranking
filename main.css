@@ -115,7 +115,7 @@ body {
 }
 
 .url-address {
-    height: 20px;
+    height: fit-content;
 }
 
 .box-5-col-1-contents-2 {
@@ -415,6 +415,11 @@ span div {
     display: none;
 }
 
+.number-of-people {
+    word-break: keep-all;
+    margin-left: 2px;
+}
+
 .more-rank-1, .more-rank-2, .more-rank-3, .fold-rank-1, .fold-rank-2, .fold-rank-3 {
     opacity: 0.87;
     font-size: 14px;
@@ -427,6 +432,7 @@ span div {
     position: relative;
     bottom: 23px;
     display: none;
+    height: 48px;
 }
 
 .box-qr-code {
@@ -446,6 +452,12 @@ span div {
 
 .show-qr-code-button {
     display: flex;
+}
+
+.url-copy-button {
+    position: relative;
+    bottom: 23px;
+    height: 48px;
 }
 
 .yellow-button:hover, .dark-button:hover, .url-copy-button:hover, .qr-code-more-button:hover, 
