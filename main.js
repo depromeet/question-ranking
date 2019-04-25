@@ -66,12 +66,14 @@ const changeBackgroundColor = () => {
 
 // 별 아이콘에 색깔 변경 및 like 개수 변경 기능 추가
 const addChangeLike = (star, likes) => {
-    console.log("called function");
-
     const $starImg = star;
     let counterLikedNumber = likes;
+
+    // 웹소켓을 통해 서버로 like 상태 변경 전달
+
+    // like 개수 변경 부분만 웹소켓 subscribe으로 옮기기
     
-    // like를 의미하는 별 아이콘 클릭 시, 색깔 변경 및 likㄷ 개수 업데이트
+    // like를 의미하는 별 아이콘 클릭 시, 색깔 변경 및 like 개수 업데이트
     $starImg.click(() => {
         if ($starImg.hasClass('yellow-star')) {
             $starImg.attr('src', '<%=request.getContextPath() %>/images/Star_interaction_' + Math.floor(Math.random() * 6) + '.gif');
@@ -103,19 +105,22 @@ const connectWebSockets = () => {
 
         // 서버로부터 STOMP 메세지를 전달받으면, 콘텐츠 업데이트
         stompClient.subscribe(`/seminar/${seminarId}`, (res) => {
+
+            console.log("메세지 도착: ", res);
             // JSON response 파싱
-            // const type = JSON.parse(res.body).type;
+            const data = JSON.parse(res.body);
+            console.log("메세지 파싱: ", data);
 
             // 새 질문 업데이트
-            // if (data.type == "comment") {
-            //}
-            postNewQuestion(res);
-            
+            if (data.type === "comment") {
+                postNewQuestion(data);
             // 좋아요 숫자 업데이트
-            // if (data.type == "likes") {}
+            } else if (data.type === "likes") {}
 
             // 랭킹순위 업데이트
-            // if (data.type == "ranking") {}
+            // if (data.type == "ranking") {
+            // 랭킹 순위 content와 like 수 바로 변경       }
+            // html/jsp 파일 랭킹 순위에 있는 contents와 like 수 default로 설정
         });
     });
 };
@@ -168,12 +173,13 @@ const enableOrDisableSendButton = () => {
 
 // 새 질문 업데이트
 const postNewQuestion = (content) => {
+    console.log("새 질문 올립니다")
     const commentText = content;
-    const $textarea = $('textarea');
     const $ul = $('ul');
     const $inputButton = $('.input-send');
     const $mobileInputButton = $('.mobile-input-send');
     const $beforeQuestionInput = $('.before-question-contents')
+    const $textarea = $('textarea');
 
     // 새 질문 올리기
     $ul.append('<div><ol></ol><span></span></div>');
@@ -444,6 +450,11 @@ $(function () {
         $('.question-contents').css( "height", mainFoldedHeight );
     }
 
+    // 모든 메세지 별 아이콘에 업데이트 기능 추가
+    // const img = $('span:last > img');
+    // const likes = 
+    // addChangeLike(img, likes);
+
     // URL 복사 기능
     copyURL();
 
@@ -471,7 +482,4 @@ $(function () {
 
     // 새 질문 등록
     uploadNewQuestion();
-
-    // like 상태 변경
-    changeLikeState();   
 });
