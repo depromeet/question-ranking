@@ -64,13 +64,14 @@ const changeBackgroundColor = () => {
     });
 };
 
-// like를 의미하는 별 아이콘 클릭 시, 아이콘 색깔 변경
-const addChangeLike = (img) => {
+// 별 아이콘에 색깔 변경 및 like 개수 변경 기능 추가
+const addChangeLike = (star, likes) => {
     console.log("called function");
 
-    const $starImg = img;
-    let counterLikedNumber = 0;
+    const $starImg = star;
+    let counterLikedNumber = likes;
     
+    // like를 의미하는 별 아이콘 클릭 시, 색깔 변경 및 likㄷ 개수 업데이트
     $starImg.click(() => {
         if ($starImg.hasClass('yellow-star')) {
             $starImg.attr('src', '<%=request.getContextPath() %>/images/Star_interaction_' + Math.floor(Math.random() * 6) + '.gif');
@@ -189,7 +190,7 @@ const postNewQuestion = (content) => {
 
     // like 별 아이콘 상태 변경 기능 추가
     const $img = $('span:last > img');
-    addChangeLike($img);
+    addChangeLike($img, 0);
 };
 
 // 웹소켓을 통해 서버에게 새 질문 전달
