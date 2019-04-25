@@ -103,25 +103,32 @@ const connectWebSockets = () => {
     stompClient.connect({}, (frame) => {
         console.log('소켓 연결되었습니다!');
 
-        // 서버로부터 STOMP 메세지를 전달받으면, 콘텐츠 업데이트
+        // 서버로부터 STOMP 메세지를 전달받으면, 새 질문 업데이트
         stompClient.subscribe(`/subscribe/seminar/${seminarId}`, (res) => {
 
             console.log("메세지 도착: ", res);
             // JSON response 파싱
             const data = JSON.parse(res.body);
             console.log("메세지 파싱: ", data);
-
-            // 새 질문 업데이트
-            if (data.type === "comment") {
-                postNewQuestion(data);
-            // 좋아요 숫자 업데이트
-            } else if (data.type === "likes") {}
-
-            // 랭킹순위 업데이트
-            // if (data.type == "ranking") {
-            // 랭킹 순위 content와 like 수 바로 변경       }
-            // html/jsp 파일 랭킹 순위에 있는 contents와 like 수 default로 설정
+            postNewQuestion(data);
+            
         });
+
+        // 서버로부터 like 업데이트 STOMP 메세지를 전달받으면,
+        stompClient.subscribe('/like', (res) => { 
+            console.log("like 업데이트: ", res);
+            // 
+        });
+
+        // 서버로부터 like 업데이트 STOMP 메세지를 전달받으면,
+        stompClient.subscribe('/unlike', (res) => { 
+            console.log("like 업데이트: ", res);
+            // 
+        });
+
+        // 랭킹 순위 content와 like 수 바로 변경       }
+        // html/jsp 파일 랭킹 순위에 있는 contents와 like 수 default로 설정
+
     });
 };
 
