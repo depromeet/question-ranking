@@ -104,7 +104,7 @@ const connectWebSockets = () => {
         console.log('소켓 연결되었습니다!');
 
         // 서버로부터 STOMP 메세지를 전달받으면, 콘텐츠 업데이트
-        stompClient.subscribe(`/seminar/${seminarId}`, (res) => {
+        stompClient.subscribe(`/subscribe/seminar/${seminarId}`, (res) => {
 
             console.log("메세지 도착: ", res);
             // JSON response 파싱
