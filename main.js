@@ -1,3 +1,8 @@
+// 웹 소켓 기본 설정
+let stompClient = null;
+let paths = window.location.pathname.split("/");
+let seminarId = paths[paths.length - 1];
+
 // 색깔 버튼 클릭 시, 배경 색깔 변경
 const changeBackgroundColor = () => {
     const $yellowButton = $('.yellow-button');
@@ -69,34 +74,34 @@ const addChangeLike = (star, likes) => {
     const $starImg = star;
     let counterLikedNumber = likes;
 
-    // 웹소켓을 통해 서버로 like 상태 변경 전달
-
     // like 개수 변경 부분만 웹소켓 subscribe으로 옮기기
     
     // like를 의미하는 별 아이콘 클릭 시, 색깔 변경 및 like 개수 업데이트
     $starImg.click(() => {
         if ($starImg.hasClass('yellow-star')) {
-            $starImg.attr('src', '<%=request.getContextPath() %>/images/Star_interaction_' + Math.floor(Math.random() * 6) + '.gif');
+            $starImg.attr('src', '/mini_QR/images/Star_interaction_' + Math.floor(Math.random() * 6) + '.gif');
             setTimeout(() => {
-                $starImg.attr('src', '<%=request.getContextPath() %>/images/one_star.png');
+                $starImg.attr('src', '/mini_QR/images/one_star.png');
             }, 2800);
             $starImg.toggleClass('yellow-star');
             counterLikedNumber++;
             $starImg.next().text(counterLikedNumber);
         } else {
-            $starImg.attr('src', '<%=request.getContextPath() %>/images/white-star.png');
+            $starImg.attr('src', '/mini_QR/images/white-star.png');
             $starImg.toggleClass('yellow-star');
             counterLikedNumber--;
             $starImg.next().text(counterLikedNumber);
         }
+
+        // 웹소켓을 통해 서버로 like 상태 변경 전달
+        const commentId = 12;
+        const message = JSON.stringify({'seminarId': seminarId, 'commentId': commentId});
+        console.log("데이터 전송합니다: ", message);
+        stompClient.send("/updates", {}, message);
     });
 };
 
-// 웹 소켓 기본 설정
-let stompClient = null;
-let paths = window.location.pathname.split("/");
-let seminarId = paths[paths.length - 1];
-
+// 웹소켓 연결하기
 const connectWebSockets = () => {
     let socket = new SockJS('/mini_QR/q-rank-websock');
     stompClient = Stomp.over(socket);
@@ -122,7 +127,7 @@ const connectWebSockets = () => {
 
         // 서버로부터 like 업데이트 STOMP 메세지를 전달받으면,
         stompClient.subscribe('/unlike', (res) => { 
-            console.log("like 업데이트: ", res);
+            console.log("unlike 업데이트: ", res);
             // 
         });
 
@@ -191,7 +196,7 @@ const postNewQuestion = (message) => {
     // 새 질문 올리기
     $ul.append('<div><ol></ol><span></span></div>');
     $('ol:last').append(commentText);
-    $('span:last').append('<img src="<%=request.getContextPath() %>/images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
+    $('span:last').append('<img src="/mini_QR/images/white-star.png" class="yellow-star" alt="Button to recommend questions"><div>0</div>')
     $('span:last > img').addClass('white-star');
     $('span:last > div').addClass($('body').attr('class'));
 
