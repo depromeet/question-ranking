@@ -65,25 +65,26 @@ const changeBackgroundColor = () => {
 };
 
 // like를 의미하는 별 아이콘 클릭 시, 아이콘 색깔 변경
-const changeLikeState = () => {
-    var counterLikedNumber = 0;
-    
-    $("ul > div:last > span > img").click(() => {
-        const $this = $(this);
+const addChangeLike = (img) => {
+    console.log("called function");
 
-        if ($this.hasClass('yellow-star')) {
-            $this.attr('src', '<%=request.getContextPath() %>/images/Star_interaction_' + Math.floor(Math.random() * 6) + '.gif');
+    const $starImg = img;
+    let counterLikedNumber = 0;
+    
+    $starImg.click(() => {
+        if ($starImg.hasClass('yellow-star')) {
+            $starImg.attr('src', '<%=request.getContextPath() %>/images/Star_interaction_' + Math.floor(Math.random() * 6) + '.gif');
             setTimeout(() => {
-                $this.attr('src', '<%=request.getContextPath() %>/images/one_star.png');
+                $starImg.attr('src', '<%=request.getContextPath() %>/images/one_star.png');
             }, 2800);
-            $this.toggleClass('yellow-star');
+            $starImg.toggleClass('yellow-star');
             counterLikedNumber++;
-            $this.next().text(counterLikedNumber);
+            $starImg.next().text(counterLikedNumber);
         } else {
-            $this.attr('src', '<%=request.getContextPath() %>/images/white-star.png');
-            $this.toggleClass('yellow-star');
+            $starImg.attr('src', '<%=request.getContextPath() %>/images/white-star.png');
+            $starImg.toggleClass('yellow-star');
             counterLikedNumber--;
-            $this.next().text(counterLikedNumber);
+            $starImg.next().text(counterLikedNumber);
         }
     });
 };
@@ -187,7 +188,8 @@ const postNewQuestion = (content) => {
     $beforeQuestionInput.hide();
 
     // like 별 아이콘 상태 변경 기능 추가
-    changeLikeState();
+    const $img = $('span:last > img');
+    addChangeLike($img);
 };
 
 // 웹소켓을 통해 서버에게 새 질문 전달
